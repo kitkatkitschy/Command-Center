@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jason's Command Center</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #eef3fa;
+    --bg-tertiary: #dce8f5;
+    --text-primary: #0d1f3c;
+    --text-secondary: #3a5a8a;
+    --text-tertiary: #7a9bbf;
+    --border-light: rgba(30,80,160,0.1);
+    --border-mid: rgba(30,80,160,0.18);
+    --border-strong: rgba(30,80,160,0.32);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --font-sans: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --accent-green: #1a6bbf;
+    --accent-blue: #0d4a99;
+    --accent-pink: #5b8dd9;
+    --accent-amber: #2563b0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #0d1e36;
+      --bg-secondary: #152844;
+      --bg-tertiary: #1a3254;
+      --text-primary: #ddeeff;
+      --text-secondary: #7aabdd;
+      --text-tertiary: #4a7aaa;
+      --border-light: rgba(100,180,255,0.08);
+      --border-mid: rgba(100,180,255,0.15);
+      --border-strong: rgba(100,180,255,0.28);
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+  }
+
+  .page { max-width: 960px; margin: 0 auto; }
+
+  .dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.5px solid var(--border-mid);
+  }
+  .dash-brand { display: flex; align-items: center; gap: 10px; }
+  .dash-logo {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--accent-blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .dash-title { font-size: 20px; font-weight: 500; color: var(--text-primary); }
+  .dash-subtitle { font-size: 13px; color: var(--text-secondary); margin-top: 1px; }
+  .dash-date { font-size: 13px; color: var(--text-secondary); text-align: right; line-height: 1.5; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.1rem 1.25rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+  }
+  .card-action {
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-sans);
+  }
+  .card-action:hover { color: var(--text-primary); }
+
+  /* ── Messages ── */
+  .messages { display: flex; flex-direction: column; gap: 8px; max-height: 280px; overflow-y: auto; }
+  .messages::-webkit-scrollbar { width: 4px; }
+  .messages::-webkit-scrollbar-track { background: transparent; }
+  .messages::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 4px; }
+
+  .msg { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 10px 12px; transition: opacity 0.2s; }
+  .msg.read { opacity: 0.45; }
+  .msg-meta { font-size: 11px; color: var(--text-tertiary); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .msg-text { font-size: 13.5px; color: var(--text-primary); line-height: 1.55; }
+  .badge {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    padding: 2px 6px; border-radius: 4px;
+  }
+  .badge-urgent { background: #e8f0fc; color: #1a3a7a; }
+  .badge-normal { background: #ddeeff; color: #0d4a99; }
+
+  .msg-input-row { display: flex; gap: 7px; margin-top: 10px; }
+  .msg-input {
+    flex: 1; padding: 7px 10px; font-size: 13px;
+    border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+    background: var(--bg-primary); color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+  .msg-input:focus { outline: none; border-color: var(--border-strong); }
+  .prio-select {
+    font-size: 12px; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+    background: var(--bg-primary); color: var(--text-secondary);
+    padding: 0 6px; cursor: pointer; font-family: var(--font-sans);
+  }
+  .btn {
+    padding: 7px 13px; font-size: 13px;
+    border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+    background: var(--bg-primary); color: var(--text-primary);
+    cursor: pointer; font-family: var(--font-sans);
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--bg-secondary); }
+
+  /* ── Calendar ── */
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .cal-col { display: flex; flex-direction: column; min-height: 130px; }
+  .cal-col-header {
+    text-align: center; padding-bottom: 8px; margin-bottom: 6px;
+    border-bottom: 1px solid var(--border-mid);
+  }
+  .cal-col-dow { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary); }
+  .cal-col-num { font-size: 20px; font-weight: 300; color: var(--text-primary); line-height: 1.2; margin-top: 2px; }
+  .cal-col.is-today .cal-col-dow { color: var(--accent-green); }
+  .cal-col.is-today .cal-col-num { color: var(--accent-green); font-weight: 500; }
+  .cal-col-events { display: flex; flex-direction: column; gap: 4px; }
+  .cal-event {
+    display: block; padding: 4px 6px; border-radius: var(--radius-md);
+    background: var(--bg-secondary); text-decoration: none;
+    transition: background 0.15s; border-left: 2px solid transparent;
+  }
+  .cal-event:hover { background: var(--bg-tertiary); }
+  .cal-event.ev-renee { border-left-color: var(--accent-pink); }
+  .cal-event.ev-today { border-left-color: var(--accent-green); }
+  .cal-event.ev-upcoming { border-left-color: var(--accent-blue); }
+  .cal-event.ev-allday { background: var(--bg-tertiary); border-left-color: var(--border-strong); }
+  .cal-title { font-size: 11px; color: var(--text-primary); line-height: 1.3; }
+  .cal-time { font-size: 10px; color: var(--text-secondary); margin-top: 1px; }
+  .cal-empty { font-size: 11px; color: var(--text-tertiary); font-style: italic; text-align: center; margin-top: 6px; }
+
+  .cal-legend { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-secondary); }
+  .cal-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-today { background: var(--accent-green); }
+  .dot-upcoming { background: var(--accent-blue); }
+  .dot-renee { background: var(--accent-pink); }
+
+  /* ── Goals ── */
+  .goal-list { display: flex; flex-direction: column; gap: 9px; }
+  .goal-item { display: flex; align-items: flex-start; gap: 10px; }
+  .goal-check {
+    width: 18px; height: 18px; border: 1.5px solid var(--border-mid);
+    border-radius: 4px; flex-shrink: 0; margin-top: 1px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-primary); transition: all 0.15s;
+  }
+  .goal-check:hover { border-color: var(--accent-blue); }
+  .goal-check.done { background: var(--accent-blue); border-color: var(--accent-blue); }
+  .goal-check.done::after {
+    content: '';
+    display: block; width: 5px; height: 9px;
+    border: 2px solid white; border-top: none; border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+  }
+  .goal-text { font-size: 14px; color: var(--text-primary); line-height: 1.5; flex: 1; }
+  .goal-text.done { color: var(--text-tertiary); text-decoration: line-through; }
+  .goal-del {
+    background: none; border: none; color: var(--text-tertiary);
+    cursor: pointer; font-size: 16px; line-height: 1; padding: 0 2px;
+    opacity: 0; transition: opacity 0.15s;
+  }
+  .goal-item:hover .goal-del { opacity: 1; }
+  .goal-del:hover { color: #A32D2D; }
+  .add-goal-row { display: flex; gap: 7px; margin-top: 10px; }
+  .add-goal-input {
+    flex: 1; padding: 7px 10px; font-size: 13px;
+    border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+    background: var(--bg-primary); color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+  .add-goal-input:focus { outline: none; border-color: var(--border-strong); }
+
+  /* ── Motivation ── */
+  .quote-card { text-align: center; padding: 0.75rem 0.25rem; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .quote-text {
+    font-size: 16px; font-weight: 400; color: var(--text-primary);
+    line-height: 1.7; font-family: var(--font-serif); margin-bottom: 12px;
+    font-style: italic;
+  }
+  .quote-author { font-size: 12px; color: var(--text-secondary); letter-spacing: 0.05em; text-transform: uppercase; }
+  .quote-loading { font-size: 13px; color: var(--text-secondary); }
+  .refresh-btn {
+    margin-top: 10px; width: 100%; padding: 7px;
+    font-size: 13px; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+    background: none; color: var(--text-secondary); cursor: pointer;
+    font-family: var(--font-sans); transition: all 0.15s;
+  }
+  .refresh-btn:hover { color: var(--text-primary); background: var(--bg-secondary); }
+
+  .empty-state { font-size: 13px; color: var(--text-secondary); padding: 6px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="dash-header">
+    <div class="dash-brand">
+      <div class="dash-logo">🍒</div>
+      <div>
+        <div class="dash-title">Jason's Command Center</div>
+        <div class="dash-subtitle">Cherry Republic</div>
+      </div>
+    </div>
+    <div class="dash-date" id="live-date"></div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button class="btn" onclick="exportAllData()" title="Export all data to a backup file" style="font-size:12px;padding:5px 11px;">⬇ Export</button>
+      <label class="btn" style="cursor:pointer;font-size:12px;padding:5px 11px;" title="Import data from a backup file">⬆ Import<input type="file" id="import-file-input" accept=".json" style="display:none;" onchange="importAllData(event)"/></label>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Calendar -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">📅 This week</span>
+        <a class="card-action" href="https://outlook.office365.com/calendar" target="_blank">Open Outlook ↗</a>
+      </div>
+      <div class="cal-legend">
+        <div class="legend-item"><div class="cal-dot dot-today"></div> Today</div>
+        <div class="legend-item"><div class="cal-dot dot-renee"></div> Renee</div>
+        <div class="legend-item"><div class="cal-dot dot-upcoming"></div> Upcoming</div>
+      </div>
+      <div class="cal-grid" id="cal-events"></div>
+    </div>
+
+
+
+
+    <!-- Sales Data Table -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">📊 Rolling 3-week sales report</span>
+        <span class="card-action" style="cursor:default">Mar 29 – Apr 18, 2026</span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;font-size:13px;border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:0.5px solid var(--border-mid);">
+              <th style="text-align:left;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Channel</th>
+              <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Sales</th>
+              <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Sales LY</th>
+              <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Var LY</th>
+              <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Sales OP</th>
+              <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Var Plan</th>
+              <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Email Collect.</th>
+            </tr>
+          </thead>
+          <tbody id="sales-table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Issues and Opportunities -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">💡 Check In / Issues / Opportunities</span>
+        <button class="card-action" onclick="addIssue()">+ Add</button>
+      </div>
+      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"></div>
+      <div style="display:flex;gap:7px;margin-top:10px;">
+        <input id="issue-input" class="msg-input" placeholder="Describe an issue or opportunity..." onkeydown="if(event.key==='Enter') addIssue()" style="flex:1;" />
+        <select id="issue-type" class="prio-select" style="min-width:110px;">
+          <option value="issue">🔴 Issue</option>
+          <option value="opportunity">🟢 Opportunity</option>
+          <option value="checkin">🔵 Check In Item</option>
+          <option value="smiley">😊 Smiley Face</option>
+        </select>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Rocks -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">🎯 Q2 Rocks</span>
+        <span class="card-action" style="cursor:default">Apr – Jun 2026</span>
+      </div>
+      <div class="goal-list" id="goal-list"></div>
+      <div class="add-goal-row">
+        <input class="add-goal-input" id="goal-input" placeholder="Add a rock..." onkeydown="if(event.key==='Enter') addGoal()" />
+        <button class="btn" onclick="addGoal()">+ Add</button>
+      </div>
+    </div>
+
+    <!-- Entrepreneur Corner -->
+    <div class="card" style="padding:0;overflow:hidden;">
+      <!-- Card title bar -->
+      <div style="padding:10px 14px;border-bottom:0.5px solid var(--border-mid);">
+        <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-secondary);">💡 Entrepreneur Corner</span>
+      </div>
+      <!-- Quote banner -->
+      <div id="ent-quote-banner" style="background:var(--accent-blue);padding:18px 20px 16px;">
+        <div id="ent-quote-text" style="font-size:15px;font-style:italic;font-family:var(--font-serif);color:#ddeeff;line-height:1.65;margin-bottom:10px;min-height:60px;">Loading inspiration…</div>
+        <div id="ent-quote-author" style="font-size:12px;color:var(--text-tertiary);font-style:italic;letter-spacing:0.04em;"></div>
+      </div>
+
+      <!-- Three columns -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:0.5px solid var(--border-mid);">
+
+        <!-- Reflection Prompt -->
+        <div style="border-right:0.5px solid var(--border-mid);">
+          <div style="background:var(--accent-green);padding:8px 12px;">
+            <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:#ddeeff;">Reflection Prompt</span>
+          </div>
+          <div style="padding:14px 12px;">
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;" id="ent-reflection-prompt">Explain why you are in your line of business in 1-2 lines.</div>
+            <textarea id="ent-reflection-input" placeholder="Your response…" style="width:100%;padding:7px 9px;font-size:13px;font-family:var(--font-sans);border:0.5px solid var(--border-mid);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);resize:vertical;min-height:64px;outline:none;"></textarea>
+          </div>
+        </div>
+
+        <!-- Forward Focus -->
+        <div style="border-right:0.5px solid var(--border-mid);">
+          <div style="background:var(--accent-green);padding:8px 12px;">
+            <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:#ddeeff;">Forward Focus</span>
+          </div>
+          <div style="padding:14px 12px;">
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;" id="ent-forward-prompt">Observe one good habit over the next 7 days. Just watch.</div>
+            <textarea id="ent-forward-input" placeholder="Your response…" style="width:100%;padding:7px 9px;font-size:13px;font-family:var(--font-sans);border:0.5px solid var(--border-mid);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);resize:vertical;min-height:64px;outline:none;"></textarea>
+          </div>
+        </div>
+
+        <!-- Key Connections -->
+        <div>
+          <div style="background:var(--accent-green);padding:8px 12px;">
+            <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:#ddeeff;">Key Connections</span>
+          </div>
+          <div style="padding:14px 12px;">
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;" id="ent-connections-prompt">What brief connection can you make in the next week to further your business?</div>
+            <textarea id="ent-connections-input" placeholder="Your response…" style="width:100%;padding:7px 9px;font-size:13px;font-family:var(--font-sans);border:0.5px solid var(--border-mid);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);resize:vertical;min-height:64px;outline:none;"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save row -->
+      <div style="padding:8px 12px;border-top:0.5px solid var(--border-mid);display:flex;justify-content:flex-end;">
+        <button class="btn" onclick="saveEntrepreneur()">Save responses</button>
+      </div>
+    </div>
+
+    <!-- Recharge Corner -->
+    <div class="card" style="padding:0;">
+      <div style="padding:10px 14px 0;">
+        <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-secondary);">✨ Recharge corner</span>
+      </div>
+      <!-- Weekly Theme banner -->
+      <div style="background:var(--accent-blue);padding:8px 14px;margin:10px 0 14px;">
+        <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:#ddeeff;">Weekly Theme</span>
+      </div>
+      <!-- YouTube thumbnail — video has embedding disabled, opens in YouTube -->
+      <div style="padding:0 14px 14px;">
+        <a href="https://youtu.be/97id1FcUEJ8" target="_blank" rel="noopener"
+           style="display:block;position:relative;border-radius:var(--radius-md);overflow:hidden;cursor:pointer;text-decoration:none;">
+          <img src="https://img.youtube.com/vi/97id1FcUEJ8/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/97id1FcUEJ8/hqdefault.jpg'"
+               style="width:100%;display:block;border-radius:var(--radius-md);" alt="Weekly Theme video" />
+          <!-- Play button overlay -->
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);border-radius:var(--radius-md);transition:background 0.2s;"
+               onmouseover="this.style.background='rgba(0,0,0,0.4)'" onmouseout="this.style.background='rgba(0,0,0,0.25)'">
+            <div style="width:64px;height:64px;background:rgba(255,0,0,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent #fff;margin-left:4px;"></div>
+            </div>
+          </div>
+        </a>
+        <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text-tertiary);">Click to watch on YouTube ↗</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+const calendarEvents = [
+  {title:"LT Level 10", start:"2026-04-21T10:30", end:"2026-04-21T12:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Jennifer Froehlich & Amy Hagerman", start:"2026-04-21T13:30", end:"2026-04-21T14:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Pilot Tiger Team Meeting", start:"2026-04-21T14:30", end:"2026-04-21T15:30", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Sales Q2 Rock building", start:"2026-04-22T09:00", end:"2026-04-22T17:00", renee:true, link:"https://outlook.office365.com/calendar"},
+  {title:"Buffer Day", start:"2026-04-23", allDay:true, renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Summit Meeting with Todd", start:"2026-04-23T10:00", end:"2026-04-23T11:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Merchandising data store walk-through", start:"2026-04-23T14:00", end:"2026-04-23T15:00", renee:true, link:"https://outlook.office365.com/calendar"},
+  {title:"Good morning sunshine! (Renee)", start:"2026-04-24T09:30", end:"2026-04-24T10:00", renee:true, link:"https://outlook.office365.com/calendar"},
+  {title:"Jen Annual 1:1", start:"2026-04-24T11:00", end:"2026-04-24T12:30", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Erik 1:1 Zoom", start:"2026-04-24T14:00", end:"2026-04-24T15:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Good morning sunshine! (Renee)", start:"2026-04-27T10:00", end:"2026-04-27T11:30", renee:true, link:"https://outlook.office365.com/calendar"},
+  {title:"Weekly Working/Not Working — Ellen", start:"2026-04-27T13:00", end:"2026-04-27T13:30", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"LT Level 10", start:"2026-04-28T10:30", end:"2026-04-28T12:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"GA Campus Ducks in a Row", start:"2026-04-28T13:30", end:"2026-04-28T16:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Renee Touch Base / planner check-in", start:"2026-04-29T09:30", end:"2026-04-29T10:30", renee:true, link:"https://outlook.office365.com/calendar"},
+  {title:"Sales L10", start:"2026-04-29T11:00", end:"2026-04-29T12:30", renee:true, link:"https://outlook.office365.com/calendar"},
+  {title:"Buffer Day", start:"2026-04-30", allDay:true, renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"TCT Board Meeting", start:"2026-04-30T09:00", end:"2026-04-30T11:00", renee:false, link:"https://outlook.office365.com/calendar"},
+  {title:"Good morning sunshine! (Renee)", start:"2026-05-01T09:30", end:"2026-05-01T10:00", renee:true, link:"https://outlook.office365.com/calendar"},
+];
+
+function fmt(d) {
+  let h = d.getHours(), m = d.getMinutes(), ap = h >= 12 ? 'pm' : 'am';
+  h = h % 12 || 12;
+  return m === 0 ? h + ap : h + ':' + String(m).padStart(2,'0') + ap;
+}
+
+function renderCalendar() {
+  const now = new Date();
+  const el = document.getElementById('cal-events');
+  const windowStart = new Date('2026-04-23T00:00:00');
+  const windowEnd   = new Date('2026-04-30T00:00:00');
+  const sorted = [...calendarEvents]
+    .filter(ev => { const d = new Date(ev.start); return d >= windowStart && d < windowEnd; })
+    .sort((a,b) => new Date(a.start) - new Date(b.start));
+
+  // Build 7 day columns: Thu 4/23 → Wed 4/29
+  const cols = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date('2026-04-23T00:00:00');
+    d.setDate(d.getDate() + i);
+    cols.push({ date: d, events: [] });
+  }
+  sorted.forEach(ev => {
+    const evDate = new Date(ev.start);
+    const col = cols.find(c => c.date.toDateString() === evDate.toDateString());
+    if (col) col.events.push(ev);
+  });
+
+  el.innerHTML = cols.map(col => {
+    const isToday = col.date.toDateString() === now.toDateString();
+    const dow = DAYS[col.date.getDay()];
+    const num = col.date.getDate();
+    const eventsHtml = col.events.length === 0
+      ? `<div class="cal-empty">—</div>`
+      : col.events.map(ev => {
+          const d = new Date(ev.start);
+          const dEnd = ev.end ? new Date(ev.end) : null;
+          const timeStr = ev.allDay ? 'All day' : (fmt(d) + (dEnd ? '–' + fmt(dEnd) : ''));
+          const cls = ev.renee ? 'ev-renee' : (isToday ? 'ev-today' : 'ev-upcoming');
+          return `<a class="cal-event ${cls}" href="${ev.link}" target="_blank">
+            <div class="cal-title">${ev.title}</div>
+            <div class="cal-time">${timeStr}</div>
+          </a>`;
+        }).join('');
+    return `<div class="cal-col${isToday ? ' is-today' : ''}">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">${dow}</div>
+        <div class="cal-col-num">${num}</div>
+      </div>
+      <div class="cal-col-events">${eventsHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+
+
+const STORAGE_GOALS = 'cr-dashboard-goals-v4';
+
+// Clear legacy keys
+['cr-dashboard-goals-v1','cr-dashboard-goals-v2','cr-dashboard-goals-v3'].forEach(k => localStorage.removeItem(k));
+
+const GOAL_DEFAULTS = [
+    {id:1, text:'Birmingham on target for Q3 opening', done:false, criteria:[
+      'Construction has commenced',
+      'Budget is prepared and agreed upon for buildout',
+      '<s>Store proven process guide is being utilized</s>',
+      'Roles and accountability adjustments are agreed upon',
+      'Fulfillment group has understanding of projections by end of Q3 for sales for second half of the year',
+    ]},
+    {id:2, text:'Sales shit on target to be ready for summer', done:false, criteria:[
+      'Inventory practices are adjusted and SOPs complete',
+      'FMU refurnished',
+      'TC cafe updated',
+      'Pub service and customer flow is complete',
+      'Remerchandising by store is done',
+      'New product plan is communicated and in place for stores',
+      'Training program updates have been implemented',
+    ]},
+    {id:3, text:'Lansing performance review is in process', done:false, criteria:[
+      '4-5 metrics that help us determine whether the store is successful',
+      'Next steps for measuring are established',
+      'Timeline established for determination',
+      'Routing for proposals established (staying closed, open, other location, etc.)',
+      'Established end date to the process',
+    ]},
+    {id:4, text:'Accountability adjustments for the team', done:false, criteria:[
+      'Specific plan with times, dates, and roles defined and shared',
+      "Dawn's role redefined",
+      "Ellen's role redefined",
+      'Northern stores management plan defined',
+      'Management team for Birmingham is laid out',
+      'Sales data analyst deliverables are clear for summer season',
+      '<s>Renee\'s attitude is sunshine and fresh air all quarter</s>',
+    ]},
+    {id:5, text:'Remerchandising to improve profitability from summer sales', done:false, criteria:[
+      'Product categories are remerchandised',
+      'Activities done before Memorial Day',
+      'Product changes are monitored and data is prepared to be collected over the course of the summer',
+      'Projected data analysis supplied to DFC',
+    ]},
+    {id:6, text:'2nd Pilot store momentum is rolling', done:false, criteria:[
+      '2-3 locations identified',
+      'Grand Rapids market looked at',
+      'Partridge Creek popup is analyzed',
+      'DC market has in-person visit',
+      'Lansing store evaluated',
+      'Initial cities in Florida identified as potential spots',
+      'Pilot kit is solidified and ready to be built',
+    ]},
+];
+
+let goals = [];
+try {
+  const stored = JSON.parse(localStorage.getItem(STORAGE_GOALS) || '[]');
+  // Always inject latest criteria from defaults, preserve done state
+  goals = GOAL_DEFAULTS.map(def => {
+    const saved = stored.find(s => s.id === def.id);
+    return {...def, done: saved ? saved.done : false};
+  });
+  // Append any user-added goals (id > 6)
+  stored.filter(s => s.id > 6).forEach(s => goals.push(s));
+} catch(e) { goals = GOAL_DEFAULTS.map(d => ({...d})); }
+saveGoals();
+
+if (false) {
+  goals = [];
+  saveGoals();
+}
+
+function saveGoals() { try { localStorage.setItem(STORAGE_GOALS, JSON.stringify(goals)); } catch(e) {} }
+
+function renderGoals() {
+  const el = document.getElementById('goal-list');
+  if (!goals.length) { el.innerHTML = '<div class="empty-state">No goals yet — add one below.</div>'; return; }
+  el.innerHTML = goals.map(g => {
+    const criteria = (g.criteria || []);
+    const criteriaHtml = criteria.length ? `
+      <ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;">
+        ${criteria.map((c,ci) => `
+          <li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;">
+            <span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span>
+            <span>${c}</span>
+          </li>`).join('')}
+      </ul>` : '';
+    return `
+    <div class="goal-item" style="flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check ${g.done ? 'done' : ''}" onclick="toggleGoal(${g.id})"></div>
+        <div class="goal-text ${g.done ? 'done' : ''}" style="flex:1;">${g.text}</div>
+        <button class="goal-del" onclick="deleteGoal(${g.id})" title="Remove">×</button>
+      </div>
+      ${criteriaHtml}
+    </div>`;
+  }).join('');
+}
+
+function toggleGoal(id) {
+  goals = goals.map(g => g.id === id ? {...g, done:!g.done} : g);
+  saveGoals(); renderGoals();
+}
+
+function deleteGoal(id) {
+  goals = goals.filter(g => g.id !== id);
+  saveGoals(); renderGoals();
+}
+
+function addGoal() {
+  const inp = document.getElementById('goal-input');
+  const text = inp.value.trim();
+  if (!text) return;
+  goals.push({id: Date.now(), text, done:false, criteria:[]});
+  saveGoals(); inp.value = ''; renderGoals();
+}
+
+const fallbackQuotes = [
+  {quote:"The secret of getting ahead is getting started.", author:"Mark Twain"},
+  {quote:"It does not matter how slowly you go as long as you do not stop.", author:"Confucius"},
+  {quote:"In the middle of every difficulty lies opportunity.", author:"Albert Einstein"},
+  {quote:"Success is not final, failure is not fatal: it is the courage to continue that counts.", author:"Winston Churchill"},
+  {quote:"The best time to plant a tree was 20 years ago. The second best time is now.", author:"Chinese Proverb"},
+  {quote:"Small daily improvements are the key to staggering long-term results.", author:"Anonymous"},
+  {quote:"Don't count the days. Make the days count.", author:"Muhammad Ali"},
+];
+
+async function fetchQuote() {
+  const qa = document.getElementById('quote-area');
+  qa.innerHTML = '<div class="quote-loading">Fetching inspiration...</div>';
+  try {
+    const resp = await fetch("https://api.anthropic.com/v1/messages", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:200,
+        messages:[{role:"user", content:'Give me one short motivational quote for a busy executive leading a team. Respond ONLY with a JSON object, no markdown, no backticks: {"quote":"...","author":"..."}'}]
+      })
+    });
+    const data = await resp.json();
+    const raw = data.content.filter(b => b.type==='text').map(b=>b.text).join('');
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const parsed = JSON.parse(clean);
+    qa.innerHTML = `<div class="quote-text">"${parsed.quote}"</div><div class="quote-author">— ${parsed.author}</div>`;
+  } catch(e) {
+    const q = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    qa.innerHTML = `<div class="quote-text">"${q.quote}"</div><div class="quote-author">— ${q.author}</div>`;
+  }
+}
+
+const STORAGE_ENT = 'cr-entrepreneur-v2';
+const ENT_DEFAULTS = {
+  reflection: '', forward: '', connections: ''
+};
+let entData = ENT_DEFAULTS;
+try {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_ENT));
+  if (saved) entData = saved;
+} catch(e) {}
+
+function renderEntrepreneur() {
+  const r = document.getElementById('ent-reflection-input');
+  const f = document.getElementById('ent-forward-input');
+  const c = document.getElementById('ent-connections-input');
+  if(r) r.value = entData.reflection || '';
+  if(f) f.value = entData.forward || '';
+  if(c) c.value = entData.connections || '';
+}
+
+function saveEntrepreneur() {
+  entData.reflection = (document.getElementById('ent-reflection-input')||{}).value || '';
+  entData.forward    = (document.getElementById('ent-forward-input')||{}).value || '';
+  entData.connections = (document.getElementById('ent-connections-input')||{}).value || '';
+  try { localStorage.setItem(STORAGE_ENT, JSON.stringify(entData)); } catch(e) {}
+  const btn = document.querySelector('[onclick="saveEntrepreneur()"]');
+  if(btn) { btn.textContent = 'Saved ✓'; setTimeout(()=>{ btn.textContent='Save responses'; }, 1500); }
+}
+
+// Auto-save on input
+['ent-reflection-input','ent-forward-input','ent-connections-input'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('input', () => {
+    entData.reflection = (document.getElementById('ent-reflection-input')||{}).value || '';
+    entData.forward    = (document.getElementById('ent-forward-input')||{}).value || '';
+    entData.connections = (document.getElementById('ent-connections-input')||{}).value || '';
+    try { localStorage.setItem(STORAGE_ENT, JSON.stringify(entData)); } catch(e) {}
+  });
+});
+
+// Fetch entrepreneur quote
+async function fetchEntQuote() {
+  const textEl = document.getElementById('ent-quote-text');
+  const authorEl = document.getElementById('ent-quote-author');
+  if(!textEl) return;
+  // Show the Philip Glass quote immediately
+  textEl.innerHTML = '“I don’t know what I’m doing. And if you don’t know what to do, there’s actually a chance of doing something new. As long as you know what you’re doing, nothing much of interest is going to happen.”';
+  authorEl.textContent = '– Phillip Glass';
+}
+
+renderEntrepreneur();
+fetchEntQuote();
+
+const now = new Date();
+  now.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'}) +
+  '<br><span style="color:var(--text-tertiary);font-size:11px">Cherry Republic</span>';
+
+const salesData = [
+  {channel:'Ann Arbor Retail', sales:110054.60, salesLY:103461.25, salesOP:106117.97, emails:963},
+  {channel:'Charlevoix Retail', sales:17291.70, salesLY:14800.48, salesOP:15036.59, emails:108},
+  {channel:'Frankenmuth Retail', sales:90928.39, salesLY:78356.61, salesOP:80765.69, emails:843},
+  {channel:'Glen Arbor Retail', sales:36433.48, salesLY:41643.83, salesOP:43070.24, emails:388},
+  {channel:'Holland Retail', sales:94087.41, salesLY:89192.03, salesOP:91551.62, emails:1284},
+  {channel:'Lansing Retail', sales:32760.62, salesLY:0, salesOP:52364.75, emails:516},
+  {channel:'Mackinaw City Retail', sales:7364.15, salesLY:0, salesOP:7751.55, emails:67},
+  {channel:'Traverse City Retail', sales:175584.03, salesLY:154655.63, salesOP:158318.12, emails:1351},
+  {channel:'All Retail', sales:null, salesLY:null, salesOP:null, emails:null, isSubtotal:true},
+  {channel:'Web Order', sales:123542.45, salesLY:138510.44, salesOP:157670.78, emails:null},
+  {channel:'Mail Order', sales:5604.55, salesLY:7011.58, salesOP:4988.58, emails:null},
+  {channel:'Corporate Order', sales:12166.80, salesLY:7059.14, salesOP:7478.53, emails:null},
+  {channel:'Amazon Order', sales:22030.28, salesLY:0, salesOP:17419.29, emails:null},
+  {channel:'WB/MO/CP Total', sales:null, salesLY:null, salesOP:null, emails:null, isSubtotal:true},
+  {channel:'Wholesale Order', sales:109320.82, salesLY:109685.06, salesOP:114566.32, emails:null},
+  {channel:'Public House', sales:16833.33, salesLY:21157.74, salesOP:22555.11, emails:null},
+  {channel:'Total', sales:null, salesLY:null, salesOP:null, emails:null, isTotal:true},
+];
+
+function calcSubtotals() {
+  const retail = salesData.filter(r => r.channel.includes('Retail') && !r.isSubtotal);
+  const wbmo = salesData.filter(r => ['Web Order','Mail Order','Corporate Order','Amazon Order'].includes(r.channel));
+  salesData.find(r => r.channel === 'All Retail').sales = retail.reduce((s,r)=>s+r.sales,0);
+  salesData.find(r => r.channel === 'All Retail').salesLY = retail.reduce((s,r)=>s+r.salesLY,0);
+  salesData.find(r => r.channel === 'All Retail').salesOP = retail.reduce((s,r)=>s+r.salesOP,0);
+  salesData.find(r => r.channel === 'All Retail').emails = retail.reduce((s,r)=>s+(r.emails||0),0);
+  salesData.find(r => r.channel === 'WB/MO/CP Total').sales = wbmo.reduce((s,r)=>s+r.sales,0);
+  salesData.find(r => r.channel === 'WB/MO/CP Total').salesLY = wbmo.reduce((s,r)=>s+r.salesLY,0);
+  salesData.find(r => r.channel === 'WB/MO/CP Total').salesOP = wbmo.reduce((s,r)=>s+r.salesOP,0);
+  const allRetail = salesData.find(r => r.channel === 'All Retail');
+  const wbmoTotal = salesData.find(r => r.channel === 'WB/MO/CP Total');
+  const wholesale = salesData.find(r => r.channel === 'Wholesale Order');
+  const pub = salesData.find(r => r.channel === 'Public House');
+  const total = salesData.find(r => r.isTotal);
+  total.sales = allRetail.sales + wbmoTotal.sales + wholesale.sales + pub.sales;
+  total.salesLY = allRetail.salesLY + wbmoTotal.salesLY + wholesale.salesLY + pub.salesLY;
+  total.salesOP = allRetail.salesOP + wbmoTotal.salesOP + wholesale.salesOP + pub.salesOP;
+}
+
+function fmtMoney(v) {
+  if (v === null || v === undefined) return '—';
+  return '$' + v.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
+}
+function fmtPct(sales, base) {
+  if (!base || base === 0) return '—';
+  const p = ((sales - base) / Math.abs(base)) * 100;
+  const color = p >= 0 ? '#1a6bbf' : '#8b1a1a';
+  return `<span style="color:${color}">${p >= 0 ? '+' : ''}${p.toFixed(1)}%</span>`;
+}
+
+function renderSalesTable() {
+  calcSubtotals();
+  const tbody = document.getElementById('sales-table-body');
+  if (!tbody) return;
+  tbody.innerHTML = salesData.map(r => {
+    const bold = r.isSubtotal || r.isTotal ? 'font-weight:500;' : '';
+    const bg = r.isTotal ? 'background:var(--bg-secondary);' : (r.isSubtotal ? 'background:var(--bg-secondary);' : '');
+    const border = (r.isSubtotal || r.isTotal) ? 'border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);' : 'border-bottom:0.5px solid var(--border-light);';
+    return `<tr style="${bg}${border}${bold}">
+      <td style="padding:5px 8px;color:var(--text-primary)">${r.channel}</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">${fmtMoney(r.sales)}</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">${fmtMoney(r.salesLY)}</td>
+      <td style="text-align:right;padding:5px 8px">${r.salesLY !== null ? fmtPct(r.sales, r.salesLY) : '—'}</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">${fmtMoney(r.salesOP)}</td>
+      <td style="text-align:right;padding:5px 8px">${r.salesOP !== null ? fmtPct(r.sales, r.salesOP) : '—'}</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">${r.emails !== null ? r.emails.toLocaleString() : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+renderCalendar();
+
+
+
+// ── Issues & Opportunities ──────────────────────────────
+const STORAGE_ISSUES = 'cr-issues-v1';
+let issues = [];
+try { issues = JSON.parse(localStorage.getItem(STORAGE_ISSUES) || '[]'); } catch(e) {}
+
+function saveIssues() { try { localStorage.setItem(STORAGE_ISSUES, JSON.stringify(issues)); } catch(e) {} }
+
+function renderIssues() {
+  const el = document.getElementById('issues-list');
+  if (!issues.length) {
+    el.innerHTML = '<div class="empty-state" style="padding:6px 0;">No issues or opportunities yet.</div>';
+    return;
+  }
+  el.innerHTML = issues.map(it => {
+    const icon = it.type === 'opportunity' ? '🟢' : it.type === 'checkin' ? '🔵' : it.type === 'smiley' ? '😊' : '🔴';
+    const label = it.type === 'opportunity' ? 'Opportunity' : it.type === 'checkin' ? 'Check In Item' : it.type === 'smiley' ? 'Smiley Face' : 'Issue';
+    return `<div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">${icon}</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">${label}</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">${it.text}</div>
+      </div>
+      <button onclick="deleteIssue(${it.id})" title="Remove"
+        style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;flex-shrink:0;">×</button>
+    </div>`;
+  }).join('');
+}
+
+function addIssue() {
+  const inp = document.getElementById('issue-input');
+  const type = document.getElementById('issue-type').value;
+  const text = inp.value.trim();
+  if (!text) return;
+  issues.push({id: Date.now(), text, type});
+  saveIssues(); inp.value = ''; renderIssues();
+}
+
+function deleteIssue(id) {
+  issues = issues.filter(i => i.id !== id);
+  saveIssues(); renderIssues();
+}
+
+renderSalesTable();
+renderGoals();
+renderIssues();
+
+// ── Export / Import All Data ────────────────────────────
+function exportAllData() {
+  const data = {
+    exportedAt: new Date().toISOString(),
+    version: 1,
+    issues: JSON.parse(localStorage.getItem(STORAGE_ISSUES) || '[]'),
+    goals: JSON.parse(localStorage.getItem(STORAGE_GOALS) || '[]'),
+    entrepreneur: JSON.parse(localStorage.getItem(STORAGE_ENT) || '{}'),
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const date = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = `jason-command-center-backup-${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importAllData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.issues !== undefined) {
+        issues = data.issues;
+        localStorage.setItem(STORAGE_ISSUES, JSON.stringify(issues));
+      }
+      if (data.goals !== undefined) {
+        goals = GOAL_DEFAULTS.map(def => {
+          const saved = data.goals.find(s => s.id === def.id);
+          return {...def, done: saved ? saved.done : false};
+        });
+        data.goals.filter(s => s.id > 6).forEach(s => goals.push(s));
+        localStorage.setItem(STORAGE_GOALS, JSON.stringify(goals));
+      }
+      if (data.entrepreneur !== undefined) {
+        entData = data.entrepreneur;
+        localStorage.setItem(STORAGE_ENT, JSON.stringify(entData));
+      }
+      renderIssues();
+      renderGoals();
+      renderEntrepreneur();
+      // Reset file input so same file can be imported again if needed
+      event.target.value = '';
+      alert('✅ Data imported successfully!');
+    } catch(err) {
+      alert('❌ Could not read backup file. Make sure it\'s a valid Command Center export.');
+      event.target.value = '';
+    }
+  };
+  reader.readAsText(file);
+}
+// ────────────────────────────────────────────────────────
+</script>
+</body>
+</html>
