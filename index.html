@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jason's Command Center</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -207,7 +205,7 @@
         <div class="dash-subtitle">Cherry Republic</div>
       </div>
     </div>
-    <div class="dash-date" id="live-date"></div>
+    <div class="dash-date" id="live-date">Tuesday, April 28, 2026<br><span style="color:var(--text-tertiary);font-size:11px">Cherry Republic</span></div>
     <button class="btn" onclick="downloadHTML()" style="font-size:12px;padding:5px 11px;">⬇ Download HTML</button>
   </div>
 
@@ -219,7 +217,85 @@
         <span class="card-title">📅 This week</span>
         <a class="card-action" href="https://outlook.office365.com/calendar" target="_blank">Open Outlook ↗</a>
       </div>
-      <div class="cal-grid" id="cal-events"></div>
+      <div class="cal-grid" id="cal-events"><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Mon</div>
+        <div class="cal-col-num">27</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-event ev-renee">
+            <div class="cal-title">Good morning sunshine! (Renee)</div>
+            <div class="cal-time">10am–11:30am</div>
+          </div><div class="cal-event ev-upcoming">
+            <div class="cal-title">Summit Meeting with Jason</div>
+            <div class="cal-time">11:30am–12:30pm</div>
+          </div><div class="cal-event ev-upcoming">
+            <div class="cal-title">Weekly Working/Not Working — Ellen</div>
+            <div class="cal-time">1pm–1:30pm</div>
+          </div></div>
+    </div><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Tue</div>
+        <div class="cal-col-num">28</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-event ev-upcoming">
+            <div class="cal-title">LT Level 10</div>
+            <div class="cal-time">10:30am–12pm</div>
+          </div><div class="cal-event ev-upcoming">
+            <div class="cal-title">GA Campus Ducks in a Row</div>
+            <div class="cal-time">1:30pm–4pm</div>
+          </div></div>
+    </div><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Wed</div>
+        <div class="cal-col-num">29</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-event ev-renee">
+            <div class="cal-title">Renee Touch Base / planner check-in</div>
+            <div class="cal-time">9:30am–10:30am</div>
+          </div><div class="cal-event ev-renee">
+            <div class="cal-title">Sales L10</div>
+            <div class="cal-time">11am–12:30pm</div>
+          </div><div class="cal-event ev-renee">
+            <div class="cal-title">Merchandising data store walk-through</div>
+            <div class="cal-time">1pm–2pm</div>
+          </div><div class="cal-event ev-upcoming">
+            <div class="cal-title">Buffer Day</div>
+            <div class="cal-time">All day</div>
+          </div></div>
+    </div><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Thu</div>
+        <div class="cal-col-num">30</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-event ev-upcoming">
+            <div class="cal-title">TCT Board Meeting</div>
+            <div class="cal-time">9am–11am</div>
+          </div></div>
+    </div><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Fri</div>
+        <div class="cal-col-num">1</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-event ev-renee">
+            <div class="cal-title">Good morning sunshine! (Renee)</div>
+            <div class="cal-time">9:30am–10am</div>
+          </div><div class="cal-event ev-upcoming">
+            <div class="cal-title">Erik 1:1 via zoom</div>
+            <div class="cal-time">12pm–1:30pm</div>
+          </div></div>
+    </div><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Sat</div>
+        <div class="cal-col-num">2</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-empty">—</div></div>
+    </div><div class="cal-col">
+      <div class="cal-col-header">
+        <div class="cal-col-dow">Sun</div>
+        <div class="cal-col-num">3</div>
+      </div>
+      <div class="cal-col-events"><div class="cal-empty">—</div></div>
+    </div></div>
     </div>
 
     <!-- Sales -->
@@ -241,7 +317,143 @@
               <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Email Collect.</th>
             </tr>
           </thead>
-          <tbody id="sales-table-body"></tbody>
+          <tbody id="sales-table-body"><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Ann Arbor Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$104,957</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$106,654</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-1.6%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$109,485</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-4.1%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">898</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Charlevoix Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$18,935</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$18,933</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+0.0%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$19,339</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-2.1%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">109</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Frankenmuth Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$78,581</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$80,328</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-2.2%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$83,034</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-5.4%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">722</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Glen Arbor Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$37,886</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$48,121</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-21.3%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$49,781</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-23.9%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">394</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Holland Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$113,049</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$100,689</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+12.3%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$103,401</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+9.3%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">1,421</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Lansing Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$32,387</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$0</td>
+      <td style="text-align:right;padding:5px 8px">—</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$52,969</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-38.9%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">490</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Mackinaw City Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$8,735</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$0</td>
+      <td style="text-align:right;padding:5px 8px">—</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$9,690</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-9.9%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">81</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Traverse City Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$172,167</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$166,676</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+3.3%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$170,707</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+0.9%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">1,349</td>
+    </tr><tr style="background:var(--bg-secondary);border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);font-weight:500;">
+      <td style="padding:5px 8px;color:var(--text-primary)">All Retail</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$566,697</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$521,402</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+8.7%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$598,406</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-5.3%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">5,464</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Web Order</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$133,859</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$134,333</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-0.4%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$152,781</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-12.4%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Mail Order</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$5,343</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$5,950</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-10.2%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$4,245</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+25.8%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Corporate Order</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$12,965</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$7,756</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+67.2%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$8,243</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+57.3%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Amazon Order</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$16,200</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$0</td>
+      <td style="text-align:right;padding:5px 8px">—</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$17,500</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-7.4%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="background:var(--bg-secondary);border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);font-weight:500;">
+      <td style="padding:5px 8px;color:var(--text-primary)">WB/MO/CP Total</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$168,366</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$148,038</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+13.7%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$182,769</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-7.9%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Wholesale Order</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$102,950</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$121,350</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-15.2%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$126,992</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-18.9%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="border-bottom:0.5px solid var(--border-light);">
+      <td style="padding:5px 8px;color:var(--text-primary)">Public House</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$18,938</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$22,307</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-15.1%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$26,993</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-29.8%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr><tr style="background:var(--bg-secondary);border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);font-weight:500;">
+      <td style="padding:5px 8px;color:var(--text-primary)">Total</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$856,951</td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$813,096</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+5.4%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$935,160</td>
+      <td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-8.4%</span></td>
+      <td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td>
+    </tr></tbody>
         </table>
       </div>
     </div>
@@ -252,9 +464,100 @@
         <span class="card-title">💡 Check In / Issues / Opportunities</span>
         <button class="card-action" onclick="addIssue()">+ Add</button>
       </div>
-      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"></div>
+      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">😊</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Smiley Face</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">book check in</div>
+      </div>
+      <button onclick="deleteIssue(1777303692311)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">ppp birmingham accountability</div>
+      </div>
+      <button onclick="deleteIssue(1777304169251)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔴</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Issue</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">executive pulse to do</div>
+      </div>
+      <button onclick="deleteIssue(1777313779200)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🟢</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Opportunity</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">dawn return- 1:1?</div>
+      </div>
+      <button onclick="deleteIssue(1777315952494)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">send me weekly planner</div>
+      </div>
+      <button onclick="deleteIssue(1777319070084)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">Julie documents pinned in your inbox</div>
+      </div>
+      <button onclick="deleteIssue(1777319095847)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">sharing ppp with other depts, how to roll out</div>
+      </div>
+      <button onclick="deleteIssue(1777320346331)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">😊</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Smiley Face</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">recharge review</div>
+      </div>
+      <button onclick="deleteIssue(1777320418609)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">finance report- that work?</div>
+      </div>
+      <button onclick="deleteIssue(1777378055095)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">bio for headshots etc</div>
+      </div>
+      <button onclick="deleteIssue(1777378353654)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">TC GA brunch good to go? Good Harbor Grill?</div>
+      </div>
+      <button onclick="deleteIssue(1777383483250)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">Todd check in stuff</div>
+      </div>
+      <button onclick="deleteIssue(1777383540243)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div><div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
+        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">Make Hand See list</div>
+      </div>
+      <button onclick="deleteIssue(1777398517994)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
+    </div></div>
       <div style="display:flex;gap:7px;margin-top:10px;">
-        <input id="issue-input" class="msg-input" placeholder="Describe an issue or opportunity..." onkeydown="if(event.key==='Enter') addIssue()" style="flex:1;" />
+        <input id="issue-input" class="msg-input" placeholder="Describe an issue or opportunity..." onkeydown="if(event.key==='Enter') addIssue()" style="flex:1;">
         <select id="issue-type" class="prio-select" style="min-width:110px;">
           <option value="issue">🔴 Issue</option>
           <option value="opportunity">🟢 Opportunity</option>
@@ -270,9 +573,39 @@
         <span class="card-title">🎯 Q2 Rocks</span>
         <span class="card-action" style="cursor:default">Apr – Jun 2026</span>
       </div>
-      <div class="goal-list" id="goal-list"></div>
+      <div class="goal-list" id="goal-list"><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check " onclick="toggleGoal(1)"></div>
+        <div class="goal-text ">Birmingham on target for Q3 opening</div>
+        <button class="goal-del" onclick="deleteGoal(1)">×</button>
+      </div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Construction has commenced</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Budget is prepared and agreed upon for buildout</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Store proven process guide is being utilized</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Roles and accountability adjustments are agreed upon</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Fulfillment group has understanding of projections by end of Q3 for sales for second half of the year</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check " onclick="toggleGoal(2)"></div>
+        <div class="goal-text ">Sales shit on target to be ready for summer</div>
+        <button class="goal-del" onclick="deleteGoal(2)">×</button>
+      </div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Inventory practices are adjusted and SOPs complete</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>FMU refurnished</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>TC cafe updated</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Pub service and customer flow is complete</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Remerchandising by store is done</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>New product plan is communicated and in place for stores</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Training program updates have been implemented</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check " onclick="toggleGoal(3)"></div>
+        <div class="goal-text ">Lansing performance review is in process</div>
+        <button class="goal-del" onclick="deleteGoal(3)">×</button>
+      </div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>4-5 metrics that help us determine whether the store is successful</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Next steps for measuring are established</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Timeline established for determination</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Routing for proposals established (staying closed, open, other location, etc.)</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Established end date to the process</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check " onclick="toggleGoal(4)"></div>
+        <div class="goal-text ">Accountability adjustments for the team</div>
+        <button class="goal-del" onclick="deleteGoal(4)">×</button>
+      </div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Specific plan with times, dates, and roles defined and shared</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Dawn's role redefined</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Ellen's role redefined</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Northern stores management plan defined</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Management team for Birmingham is laid out</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Sales data analyst deliverables are clear for summer season</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Renee's attitude is sunshine and fresh air all quarter</s></span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check " onclick="toggleGoal(5)"></div>
+        <div class="goal-text ">Remerchandising to improve profitability from summer sales</div>
+        <button class="goal-del" onclick="deleteGoal(5)">×</button>
+      </div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Product categories are remerchandised</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Activities done before Memorial Day</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Product changes are monitored and data is prepared to be collected over the course of the summer</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Projected data analysis supplied to DFC</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div class="goal-check " onclick="toggleGoal(6)"></div>
+        <div class="goal-text ">2nd Pilot store momentum is rolling</div>
+        <button class="goal-del" onclick="deleteGoal(6)">×</button>
+      </div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>2-3 locations identified</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Grand Rapids market looked at</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Partridge Creek popup is analyzed</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>DC market has in-person visit</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Lansing store evaluated</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Initial cities in Florida identified as potential spots</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Pilot kit is solidified and ready to be built</span></li></ul></div></div>
       <div class="add-goal-row">
-        <input class="add-goal-input" id="goal-input" placeholder="Add a rock..." onkeydown="if(event.key==='Enter') addGoal()" />
+        <input class="add-goal-input" id="goal-input" placeholder="Add a rock..." onkeydown="if(event.key==='Enter') addGoal()">
         <button class="btn" onclick="addGoal()">+ Add</button>
       </div>
     </div>
@@ -282,11 +615,10 @@
       <div class="card-header">
         <span class="card-title">💡 Entrepreneur Corner</span>
       </div>
-      <img src="Picture1.png" alt="Certainty/Uncertainty Focus"
-           style="width:100%;display:block;border-radius:var(--radius-md);border:0.5px solid var(--border-light);" />
+      <img src="Picture1.png" alt="Certainty/Uncertainty Focus" style="width:100%;display:block;border-radius:var(--radius-md);border:0.5px solid var(--border-light);">
       <div class="countdown-wrap">
         <div class="countdown-label">Countdown to removal of this section</div>
-        <div class="countdown-timer" id="countdown-display">--d --h --m --s</div>
+        <div class="countdown-timer" id="countdown-display">27d 15h 16m 54s</div>
         <div class="countdown-sub">Target removal date: May 27, 2026</div>
       </div>
     </div>
@@ -300,10 +632,8 @@
         <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:#ddeeff;">Weekly Theme</span>
       </div>
       <div style="padding:0 14px 14px;">
-        <img src="fj.png"
-             style="width:100%;display:block;border-radius:var(--radius-md);" alt="Laban Effort Actions diagram" />
-        <textarea placeholder="Add your notes or reflections on this week's theme…"
-          style="width:100%;margin-top:10px;padding:9px 10px;font-size:13px;font-family:var(--font-sans);
+        <img src="fj.png" style="width:100%;display:block;border-radius:var(--radius-md);" alt="Laban Effort Actions diagram">
+        <textarea placeholder="Add your notes or reflections on this week's theme…" style="width:100%;margin-top:10px;padding:9px 10px;font-size:13px;font-family:var(--font-sans);
                  border:0.5px solid var(--border-mid);border-radius:var(--radius-md);
                  background:var(--bg-primary);color:var(--text-primary);resize:vertical;min-height:80px;outline:none;"></textarea>
       </div>
@@ -316,21 +646,47 @@
 const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 const calendarEvents = [
-  {title:"Good morning sunshine! (Renee)", start:"2026-04-27T10:00", end:"2026-04-27T11:30", renee:true},
-  {title:"Summit Meeting with Jason",      start:"2026-04-27T11:30", end:"2026-04-27T12:30", renee:false},
-  {title:"Weekly Working/Not Working — Ellen", start:"2026-04-27T13:00", end:"2026-04-27T13:30", renee:false},
-  {title:"LT Level 10",                    start:"2026-04-28T10:30", end:"2026-04-28T12:00", renee:false},
-  {title:"GA Campus Ducks in a Row",       start:"2026-04-28T13:30", end:"2026-04-28T16:00", renee:false},
-  {title:"Renee Touch Base / planner check-in", start:"2026-04-29T09:30", end:"2026-04-29T10:30", renee:true},
-  {title:"Sales L10",                      start:"2026-04-29T11:00", end:"2026-04-29T12:30", renee:true},
-  {title:"Merchandising data store walk-through", start:"2026-04-29T13:00", end:"2026-04-29T14:00", renee:true},
-  {title:"Buffer Day",                     start:"2026-04-30", allDay:true, renee:false},
-  {title:"TCT Board Meeting",              start:"2026-04-30T09:00", end:"2026-04-30T11:00", renee:false},
-  {title:"Good morning sunshine! (Renee)", start:"2026-05-01T09:30", end:"2026-05-01T10:00", renee:true},
-  {title:"Erik 1:1 via zoom",             start:"2026-05-01T12:00", end:"2026-05-01T13:30", renee:false},
-  {title:"Good morning sunshine! (Renee)", start:"2026-05-04T10:00", end:"2026-05-04T11:30", renee:true},
-  {title:"Weekly Working/Not Working — Ellen", start:"2026-05-04T13:00", end:"2026-05-04T13:30", renee:false},
-  {title:"Larissa Jason biweekly check-in", start:"2026-05-04T14:00", end:"2026-05-04T15:00", renee:false},
+  // Wed Apr 29
+  {title:"OOO",                                    start:"2026-04-29T08:00", end:"2026-04-29T11:00", allDay:false},
+  {title:"Sales L10",                              start:"2026-04-29T11:00", end:"2026-04-29T12:30", renee:true},
+  {title:"Merchandising data store walk-through",  start:"2026-04-29T13:00", end:"2026-04-29T14:00"},
+  {title:"Renee Touch Base / planner check-in",    start:"2026-04-29T15:00", end:"2026-04-29T16:00", renee:true},
+  {title:"Track Meet @ Brethren",                  start:"2026-04-29T16:00", end:"2026-04-29T22:00"},
+  // Thu Apr 30
+  {title:"Buffer Day",                             start:"2026-04-30", allDay:true},
+  {title:"TCT Board Meeting",                      start:"2026-04-30T09:00", end:"2026-04-30T11:00"},
+  {title:"Space saver – Renee / Birmingham Accountability", start:"2026-04-30T13:00", end:"2026-04-30T14:00", renee:true},
+  // Fri May 1
+  {title:"Good morning sunshine!",                 start:"2026-05-01T09:30", end:"2026-05-01T10:00", renee:true},
+  {title:"Erik 1:1 via Zoom/Teams",               start:"2026-05-01T12:00", end:"2026-05-01T13:30"},
+  {title:"Track – Ken Bell Invitational",          start:"2026-05-01T11:00", end:"2026-05-01T19:00"},
+  // Sat May 2 — nothing
+  // Sun May 3 — nothing
+  // Mon May 4
+  {title:"OOO",                                    start:"2026-05-04T11:00", end:"2026-05-04T17:00"},
+  {title:"Larissa Jason biweekly check-in",        start:"2026-05-04T12:00", end:"2026-05-04T13:00"},
+  // Tue May 5
+  {title:"Jason/Julie Coffee Hour",                start:"2026-05-05T09:00", end:"2026-05-05T10:00"},
+  {title:"LT Level 10",                            start:"2026-05-05T10:30", end:"2026-05-05T12:00"},
+  {title:"Lunch with Don",                         start:"2026-05-05T12:00", end:"2026-05-05T12:30"},
+  {title:"Jason Jen biweekly check",               start:"2026-05-05T13:30", end:"2026-05-05T14:00"},
+  {title:"OOO",                                    start:"2026-05-05T15:00", end:"2026-05-05T17:00"},
+  // Wed May 6
+  {title:"Holland store visit (all day)",          start:"2026-05-06", allDay:true},
+  {title:"Dinner in Lansing – BJ's Brewhouse",     start:"2026-05-06T17:00", end:"2026-05-06T18:30"},
+  // Thu May 7
+  {title:"AA, FMU visits (time TBA)",              start:"2026-05-07", allDay:true},
+  {title:"Buffer Day",                             start:"2026-05-07", allDay:true},
+  // Fri May 8
+  {title:"Good morning sunshine!",                 start:"2026-05-08T09:30", end:"2026-05-08T10:00", renee:true},
+  {title:"OOO",                                    start:"2026-05-08T15:00", end:"2026-05-08T17:00"},
+  // Sat–Mon May 9–11
+  {title:"Midland Soccer Tournament",              start:"2026-05-09", allDay:true},
+  {title:"Midland Soccer Tournament",              start:"2026-05-10", allDay:true},
+  {title:"Dept Executive Packet Due to Rebecca",   start:"2026-05-10", allDay:true},
+  {title:"TC/GA brunch (location TBA)",            start:"2026-05-11", allDay:true},
+  {title:"Agency Visits",                          start:"2026-05-11T10:00", end:"2026-05-11T10:45"},
+  {title:"Good morning sunshine!",                 start:"2026-05-11T10:00", end:"2026-05-11T11:30", renee:true},
 ];
 
 function fmt(d) {
@@ -340,11 +696,11 @@ function fmt(d) {
 }
 
 function renderCalendar() {
-  const now = new Date('2026-04-27');
+  const now = new Date('2026-04-29');
   const el = document.getElementById('cal-events');
   const cols = [];
   for (let i = 0; i < 7; i++) {
-    const d = new Date('2026-04-27T00:00:00');
+    const d = new Date('2026-04-29T00:00:00');
     d.setDate(d.getDate() + i);
     cols.push({ date: d, events: [] });
   }
@@ -450,24 +806,114 @@ function renderSalesTable() {
 }
 
 const STORAGE_ISSUES = 'cr-issues-v1';
+const DEFAULT_ISSUES = [
+  { id: 1, text: "book check in", type: "smiley" },
+  { id: 2, text: "ppp birmingham accountability", type: "checkin" },
+  { id: 3, text: "executive pulse to do", type: "issue" },
+  { id: 4, text: "dawn return- 1:1?", type: "opportunity" },
+  { id: 5, text: "send me weekly planner", type: "checkin" },
+  { id: 6, text: "Julie documents pinned in your inbox", type: "checkin" },
+  { id: 7, text: "sharing ppp with other depts, how to roll out", type: "checkin" },
+  { id: 8, text: "recharge review", type: "smiley" },
+  { id: 9, text: "finance report- that work?", type: "checkin" },
+  { id: 10, text: "bio for headshots etc", type: "checkin" },
+  { id: 11, text: "TC GA brunch good to go? Good Harbor Grill?", type: "checkin" },
+  { id: 12, text: "Todd check in stuff", type: "checkin" },
+  { id: 13, text: "Make Hand See list", type: "checkin" }
+];
 let issues = [];
-try { issues = JSON.parse(localStorage.getItem(STORAGE_ISSUES) || '[]'); } catch(e) {}
+try {
+  const stored = localStorage.getItem(STORAGE_ISSUES);
+  issues = stored ? JSON.parse(stored) : DEFAULT_ISSUES;
+} catch(e) { issues = DEFAULT_ISSUES; }
 function saveIssues() { try { localStorage.setItem(STORAGE_ISSUES, JSON.stringify(issues)); } catch(e) {} }
+let dragSrcId = null;
 function renderIssues() {
   const el = document.getElementById('issues-list');
   if (!issues.length) { el.innerHTML = '<div class="empty-state">No issues or opportunities yet.</div>'; return; }
   el.innerHTML = issues.map(it => {
     const icon  = it.type === 'opportunity' ? '🟢' : it.type === 'checkin' ? '🔵' : it.type === 'smiley' ? '😊' : '🔴';
     const label = it.type === 'opportunity' ? 'Opportunity' : it.type === 'checkin' ? 'Check In Item' : it.type === 'smiley' ? 'Smiley Face' : 'Issue';
-    return `<div style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;">
+    const hasMeta = it.notes || it.owner || it.due || it.status;
+    const statusBadge = it.status ? {
+      'not-started':'⬜','in-progress':'🔄','blocked':'🚫','done':'✅'
+    }[it.status] || '' : '';
+    return `<div data-id="${it.id}" draggable="true"
+      style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;cursor:grab;transition:opacity 0.15s,box-shadow 0.15s;"
+      ondragstart="issueDragStart(event,${it.id})"
+      ondragover="issueDragOver(event)"
+      ondrop="issueDrop(event,${it.id})"
+      ondragend="issueDragEnd(event)">
+      <span style="color:var(--text-tertiary);font-size:14px;flex-shrink:0;margin-top:2px;cursor:grab;user-select:none;line-height:1;" title="Drag to reorder">⠿</span>
       <span style="font-size:13px;flex-shrink:0;margin-top:1px;">${icon}</span>
-      <div style="flex:1;">
-        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">${label}</div>
+      <div style="flex:1;cursor:pointer;" onclick="openIssueModal(${it.id})">
+        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">${label}${statusBadge ? ' &nbsp;'+statusBadge : ''}</div>
         <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">${it.text}</div>
+        ${it.notes ? `<div style="margin-top:4px;font-size:11.5px;color:var(--text-tertiary);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:340px;">${it.notes.substring(0,80)}${it.notes.length>80?'…':''}</div>` : ''}
       </div>
       <button onclick="deleteIssue(${it.id})" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
     </div>`;
   }).join('');
+}
+let modalIssueId = null;
+function openIssueModal(id) {
+  const it = issues.find(i => i.id === id);
+  if (!it) return;
+  modalIssueId = id;
+  const icon  = it.type === 'opportunity' ? '🟢' : it.type === 'checkin' ? '🔵' : it.type === 'smiley' ? '😊' : '🔴';
+  const label = it.type === 'opportunity' ? 'Opportunity' : it.type === 'checkin' ? 'Check In Item' : it.type === 'smiley' ? 'Smiley Face' : 'Issue';
+  document.getElementById('modal-icon').textContent = icon;
+  document.getElementById('modal-label').textContent = label;
+  document.getElementById('modal-title').textContent = it.text;
+  document.getElementById('modal-notes').value = it.notes || '';
+  document.getElementById('modal-status').value = it.status || '';
+  document.getElementById('issue-modal-overlay').style.display = 'block';
+  document.getElementById('issue-modal').style.display = 'block';
+}
+function closeIssueModal() {
+  document.getElementById('issue-modal-overlay').style.display = 'none';
+  document.getElementById('issue-modal').style.display = 'none';
+  modalIssueId = null;
+}
+function saveIssueModal() {
+  if (!modalIssueId) return;
+  issues = issues.map(i => i.id === modalIssueId ? {
+    ...i,
+    notes: document.getElementById('modal-notes').value.trim(),
+    status: document.getElementById('modal-status').value
+  } : i);
+  saveIssues(); renderIssues(); closeIssueModal();
+}
+function deleteIssueFromModal() {
+  if (!modalIssueId) return;
+  issues = issues.filter(i => i.id !== modalIssueId);
+  saveIssues(); renderIssues(); closeIssueModal();
+}
+function issueDragStart(e, id) {
+  dragSrcId = id;
+  e.dataTransfer.effectAllowed = 'move';
+  setTimeout(() => e.currentTarget.style.opacity = '0.4', 0);
+}
+function issueDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-blue)';
+}
+function issueDrop(e, targetId) {
+  e.preventDefault();
+  e.currentTarget.style.boxShadow = '';
+  if (dragSrcId === targetId) return;
+  const fromIdx = issues.findIndex(i => i.id === dragSrcId);
+  const toIdx   = issues.findIndex(i => i.id === targetId);
+  const moved = issues.splice(fromIdx, 1)[0];
+  issues.splice(toIdx, 0, moved);
+  saveIssues(); renderIssues();
+}
+function issueDragEnd(e) {
+  document.querySelectorAll('#issues-list > div').forEach(d => {
+    d.style.opacity = '';
+    d.style.boxShadow = '';
+  });
 }
 function addIssue() {
   const inp = document.getElementById('issue-input');
@@ -567,5 +1013,39 @@ renderSalesTable();
 renderIssues();
 renderGoals();
 </script>
-</body>
-</html>
+
+
+
+<!-- Issue Detail Modal -->
+<div id="issue-modal-overlay" onclick="closeIssueModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;backdrop-filter:blur(2px);"></div>
+<div id="issue-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1001;width:min(520px,92vw);background:var(--bg-primary);border-radius:var(--radius-lg);box-shadow:0 20px 60px rgba(0,0,0,0.25);padding:24px;border:1px solid var(--border-mid);">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+    <span id="modal-icon" style="font-size:18px;"></span>
+    <div style="flex:1;">
+      <div id="modal-label" style="font-size:10px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:2px;"></div>
+      <div id="modal-title" style="font-size:15px;font-weight:600;color:var(--text-primary);"></div>
+    </div>
+    <button onclick="closeIssueModal()" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:20px;line-height:1;padding:2px 6px;">&times;</button>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <div>
+      <label style="font-size:11px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;">Notes</label>
+      <textarea id="modal-notes" rows="4" placeholder="Add notes, context, or background info..." style="width:100%;background:var(--bg-secondary);border:1px solid var(--border-mid);border-radius:var(--radius-md);padding:10px 12px;font-size:13.5px;color:var(--text-primary);font-family:var(--font-sans);resize:vertical;outline:none;line-height:1.6;"></textarea>
+    </div>
+    <div>
+      <label style="font-size:11px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;">Status</label>
+      <select id="modal-status" style="width:100%;background:var(--bg-secondary);border:1px solid var(--border-mid);border-radius:var(--radius-md);padding:9px 12px;font-size:13.5px;color:var(--text-primary);font-family:var(--font-sans);outline:none;">
+        <option value="">— Not set —</option>
+        <option value="not-started">⬜ Not Started</option>
+        <option value="in-progress">🔄 In Progress</option>
+        <option value="blocked">🚫 Blocked</option>
+        <option value="done">✅ Done</option>
+      </select>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--border-light);">
+    <button onclick="deleteIssueFromModal()" style="background:none;border:1px solid var(--border-mid);color:var(--text-tertiary);border-radius:var(--radius-md);padding:8px 14px;font-size:13px;cursor:pointer;">🗑 Delete</button>
+    <button onclick="saveIssueModal()" style="background:var(--accent-blue);color:#fff;border:none;border-radius:var(--radius-md);padding:9px 20px;font-size:13.5px;font-weight:600;cursor:pointer;">Save</button>
+  </div>
+</div>
+</body></html>
