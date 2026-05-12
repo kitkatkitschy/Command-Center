@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -243,7 +242,7 @@
     font-size: 13px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 9999;
   }
 </style>
-</head>
+<script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script></head>
 <body>
 <div class="page">
 
@@ -255,7 +254,7 @@
         <div class="dash-subtitle">Cherry Republic</div>
       </div>
     </div>
-    <div class="dash-date" id="live-date">Wednesday, May 6, 2026<br><span style="color:var(--text-tertiary);font-size:11px">Cherry Republic</span></div>
+    <div class="dash-date" id="live-date">Friday, May 8, 2026<br><span style="color:var(--text-tertiary);font-size:11px">Cherry Republic</span></div>
     <button class="btn" onclick="downloadHTML()" style="font-size:12px;padding:5px 11px;">⬇ Download HTML</button>
   </div>
 
@@ -264,109 +263,101 @@
     <!-- Calendar -->
     <div class="card">
       <div class="card-header">
-        <span class="card-title">📅 May 8 – 15</span>
+        <span class="card-title">📅 May 12 – 19</span>
         <a class="card-action" href="https://outlook.office365.com/calendar" target="_blank">Open Outlook ↗</a>
       </div>
-      <div class="cal-grid" id="cal-events" style="grid-template-columns:repeat(8,1fr);"><div class="cal-col is-today">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Fri</div>
-        <div class="cal-col-num">8</div>
+      <div class="cal-grid" id="cal-events" style="grid-template-columns:repeat(8,1fr);">
+
+        <!-- Tue May 12 (TODAY) -->
+        <div class="cal-col is-today">
+          <div class="cal-col-header"><div class="cal-col-dow">Tue</div><div class="cal-col-num">12</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9am–10am</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">LT Level 10</div><div class="cal-time">10:30am–12pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Projects Check In</div><div class="cal-time">12:30pm–1pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Dawn, Ellen, Marissa Role Check In</div><div class="cal-time">1pm–1:30pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Golf – Leland Country Club</div><div class="cal-time">1pm–1:30pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Test Vodka Mule Samples</div><div class="cal-time">4pm–4:30pm</div></div>
+          </div>
+        </div>
+
+        <!-- Wed May 13 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Wed</div><div class="cal-col-num">13</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-upcoming"><div class="cal-title">Sales L10</div><div class="cal-time">11am–12:30pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Group Recharge!</div><div class="cal-time">12:30pm–5pm</div></div>
+          </div>
+        </div>
+
+        <!-- Thu May 14 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Thu</div><div class="cal-col-num">14</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-allday"><div class="cal-title">Buffer Day</div><div class="cal-time">All day</div></div>
+            <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9am–10am</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Not Available</div><div class="cal-time">10:15am–1:15pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Innovation Coffee Hour</div><div class="cal-time">1:30pm–3pm</div></div>
+          </div>
+        </div>
+
+        <!-- Fri May 15 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Fri</div><div class="cal-col-num">15</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-allday"><div class="cal-title">Tentative Northern Stores Visit</div><div class="cal-time">All day</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Busy</div><div class="cal-time">8am–10:30am</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Benefits Open Enrollment Mtg</div><div class="cal-time">9am–10am</div></div>
+            <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9:30am–10am</div></div>
+          </div>
+        </div>
+
+        <!-- Sat May 16 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Sat</div><div class="cal-col-num">16</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-upcoming"><div class="cal-title">Cherry Capital Cup Game 1 – Field #2</div><div class="cal-time">8:50am–9:20am</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Game 2 – Field 15</div><div class="cal-time">2:10pm–2:40pm</div></div>
+          </div>
+        </div>
+
+        <!-- Sun May 17 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Sun</div><div class="cal-col-num">17</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-upcoming"><div class="cal-title">Game 3 – Bulldogs Field #1</div><div class="cal-time">7:30am–8am</div></div>
+          </div>
+        </div>
+
+        <!-- Mon May 18 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Mon</div><div class="cal-col-num">18</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">10am–11:30am</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Working/Not Working – Ellen</div><div class="cal-time">1pm–1:30pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Larissa &amp; Jason Biweekly</div><div class="cal-time">2pm–3pm</div></div>
+          </div>
+        </div>
+
+        <!-- Tue May 19 -->
+        <div class="cal-col">
+          <div class="cal-col-header"><div class="cal-col-dow">Tue</div><div class="cal-col-num">19</div></div>
+          <div class="cal-col-events">
+            <div class="cal-event ev-upcoming"><div class="cal-title">Jason/Julie Coffee Hour</div><div class="cal-time">9am–10am</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">LT Level 10</div><div class="cal-time">10:30am–12pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Projects Check In</div><div class="cal-time">1pm–1:30pm</div></div>
+            <div class="cal-event ev-upcoming"><div class="cal-title">Jason &amp; Jen Biweekly</div><div class="cal-time">1:30pm–2pm</div></div>
+          </div>
+        </div>
+
       </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9:30am–11am</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Budget Work – Birmingham</div><div class="cal-time">11am–1pm</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Marissa &amp; Jason check in</div><div class="cal-time">1pm–2pm</div></div>
-        <div class="cal-event ev-allday"><div class="cal-title">OOO</div><div class="cal-time">3pm–5pm</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Championship Meet</div><div class="cal-time">4pm – Manton HS</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Sat</div>
-        <div class="cal-col-num">9</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-allday"><div class="cal-title">Midland Soccer Tournament</div><div class="cal-time">All day</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Game 1 – Field #3</div><div class="cal-time">8am – 901 Soccer Dr</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Game 2 – Field #3</div><div class="cal-time">11:55am</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Sun</div>
-        <div class="cal-col-num">10</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-allday"><div class="cal-title">Midland Soccer Tournament</div><div class="cal-time">All day</div></div>
-        <div class="cal-event ev-allday"><div class="cal-title">Dept Exec Packet Due</div><div class="cal-time">All day</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Game 3 – Field #2</div><div class="cal-time">8am – 901 Soccer Dr</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Game 4 – Field #3</div><div class="cal-time">11:55am</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Mon</div>
-        <div class="cal-col-num">11</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-allday"><div class="cal-title">Renee OOO</div><div class="cal-time">All day</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">TC/GA Breakfast</div><div class="cal-time">9am–10:30am – Good Harbor Grill</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Agency Visits (declined)</div><div class="cal-time">10am–10:45am</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Working/Not Working – Ellen</div><div class="cal-time">1pm–1:30pm</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Talking Expansion – Roni</div><div class="cal-time">2pm–3pm</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Tue</div>
-        <div class="cal-col-num">12</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9am–10am</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">LT Level 10</div><div class="cal-time">10:30am–12pm</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Projects Check In</div><div class="cal-time">12:30pm–1pm</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Dawn/Ellen/Marissa roles</div><div class="cal-time">1pm–1:30pm</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Wed</div>
-        <div class="cal-col-num">13</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-upcoming"><div class="cal-title">Sales L10</div><div class="cal-time">11am–12:30pm</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Group Recharge!</div><div class="cal-time">12:30pm–5pm</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Thu</div>
-        <div class="cal-col-num">14</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-allday"><div class="cal-title">Buffer Day</div><div class="cal-time">All day</div></div>
-        <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9:30am–11:30am – Mundos 305</div></div>
-        <div class="cal-event ev-upcoming"><div class="cal-title">Innovation Coffee Hour</div><div class="cal-time">1:30pm–3pm</div></div>
-      </div>
-    </div>
-    <div class="cal-col">
-      <div class="cal-col-header">
-        <div class="cal-col-dow">Fri</div>
-        <div class="cal-col-num">15</div>
-      </div>
-      <div class="cal-col-events">
-        <div class="cal-event ev-allday"><div class="cal-title">Tentative Northern Stores Visit</div><div class="cal-time">All day</div></div>
-        <div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9:30am–10am</div></div>
-      </div>
-    </div>
-    </div>
     </div>
 
     <!-- Sales -->
     <div class="card">
       <div class="card-header">
         <span class="card-title">📊 Rolling 3-week sales report</span>
-        <span class="card-action" style="cursor:default">Apr 12 – May 2, 2026</span>
+        <span class="card-action" style="cursor:default">Apr 19 – May 9, 2026</span>
       </div>
       <div style="overflow-x:auto;">
         <table style="width:100%;font-size:13px;border-collapse:collapse;">
@@ -381,7 +372,7 @@
               <th style="text-align:right;padding:6px 8px;font-weight:500;color:var(--text-secondary);font-size:11px;">Email Collect.</th>
             </tr>
           </thead>
-          <tbody id="sales-table-body"></tbody>
+          <tbody id="sales-table-body"><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Ann Arbor Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$129,826</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$125,029</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+3.8%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$129,458</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+0.3%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">948</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Charlevoix Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$22,406</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$21,612</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+3.7%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$22,432</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-0.1%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">137</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Frankenmuth Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$77,516</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$78,543</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-1.3%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$81,556</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-5.0%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">646</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Glen Arbor Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$49,927</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$53,810</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-7.2%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$55,853</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-10.6%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">483</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Holland Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$171,126</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$156,365</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+9.4%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$161,928</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+5.7%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">1,739</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Lansing Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$37,349</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$0</td><td style="text-align:right;padding:5px 8px">—</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$58,334</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-36.0%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">537</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Mackinaw City Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$11,083</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$0</td><td style="text-align:right;padding:5px 8px">—</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$9,155</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+21.1%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">125</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Traverse City Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$194,720</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$183,414</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+6.2%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$189,023</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+3.0%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">1,485</td></tr><tr style="background:var(--bg-secondary);border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);font-weight:500;"><td style="padding:5px 8px;color:var(--text-primary)">All Retail</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$693,953</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$618,774</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+12.1%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$707,739</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-1.9%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">6,100</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Web Order</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$164,136</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$132,671</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+23.7%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$150,742</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+8.9%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Mail Order</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$9,280</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$6,899</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+34.5%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$4,910</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+89.0%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Corporate Order</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$12,580</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$16,798</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-25.1%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$19,055</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-34.0%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Amazon Order</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$14,020</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$0</td><td style="text-align:right;padding:5px 8px">—</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$17,446</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-19.6%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="background:var(--bg-secondary);border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);font-weight:500;"><td style="padding:5px 8px;color:var(--text-primary)">WB/MO/CP Total</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$200,016</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$156,368</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+27.9%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$192,152</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+4.1%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Wholesale Order</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$95,128</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$95,949</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-0.9%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$100,487</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-5.3%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="border-bottom:0.5px solid var(--border-light);"><td style="padding:5px 8px;color:var(--text-primary)">Public House</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$25,305</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$24,469</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+3.4%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$28,823</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-12.2%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr><tr style="background:var(--bg-secondary);border-top:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);font-weight:500;"><td style="padding:5px 8px;color:var(--text-primary)">Total</td><td style="text-align:right;padding:5px 8px;color:var(--text-primary)">$1,014,401</td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$895,560</td><td style="text-align:right;padding:5px 8px"><span style="color:#1a6bbf">+13.3%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">$1,029,202</td><td style="text-align:right;padding:5px 8px"><span style="color:#8b1a1a">-1.4%</span></td><td style="text-align:right;padding:5px 8px;color:var(--text-secondary)">—</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -392,7 +383,7 @@
         <span class="card-title">💡 Check In / Issues / Opportunities</span>
         <button class="card-action" onclick="addIssue()">+ Add</button>
       </div>
-      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"></div>
+      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"><div class="empty-state">No issues or opportunities yet.</div></div>
       <div style="display:flex;gap:7px;margin-top:10px;">
         <input id="issue-input" class="msg-input" placeholder="Describe an issue or opportunity..." onkeydown="if(event.key==='Enter') addIssue()" style="flex:1;">
         <select id="issue-type" class="prio-select" style="min-width:110px;">
@@ -416,14 +407,14 @@
         </div>
       </div>
       <!-- Wheel -->
-      <div id="ppp-wheel-wrap">
+      <div id="ppp-wheel-wrap" style="display: block;">
         <canvas id="ppp-c" width="700" height="700"></canvas>
       </div>
       <!-- Detail panel -->
-      <div id="ppp-detail-wrap">
-        <button id="ppp-back">← Back to wheel</button>
-        <div id="ppp-dtitle"></div>
-        <div id="ppp-dcontent"></div>
+      <div id="ppp-detail-wrap" style="display: none; border-left: 4px solid rgb(58, 79, 92);">
+        <button id="ppp-back" style="background: rgb(58, 79, 92); color: rgb(255, 255, 255);">← Back to wheel</button>
+        <div id="ppp-dtitle" style="color: rgb(58, 79, 92);">Evaluation</div>
+        <div id="ppp-dcontent"><div class="ppp-sub"><div class="ppp-subname">KPI's</div><p class="ppp-noitem">No checklist items yet</p></div><div class="ppp-sub"><div class="ppp-subname">Reporting</div><ul class="ppp-subitems"><li>P&amp;Ls and Sales plans created before first year is complete</li></ul></div><div class="ppp-sub"><div class="ppp-subname">Feedback</div><ul class="ppp-subitems"><li>Successes and challenges from store manager are captured</li></ul></div></div>
         <div class="ppp-notes-wrap">
           <div class="ppp-notes-label">Notes</div>
           <textarea id="ppp-notes-box" placeholder="Add notes…"></textarea>
@@ -443,7 +434,7 @@
         <span class="card-title">🎯 Q2 Rocks</span>
         <span class="card-action" style="cursor:default">Apr – Jun 2026</span>
       </div>
-      <div class="goal-list" id="goal-list"></div>
+      <div class="goal-list" id="goal-list"><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;"><div style="display:flex;align-items:flex-start;gap:10px;"><div class="goal-check " onclick="toggleGoal(1)"></div><div class="goal-text ">Birmingham on target for Q3 opening</div><button class="goal-del" onclick="deleteGoal(1)">×</button></div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Construction has commenced</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Budget is prepared and agreed upon for buildout</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Store proven process guide is being utilized</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Roles and accountability adjustments are agreed upon</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Fulfillment group has understanding of projections by end of Q3 for sales for second half of the year</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;"><div style="display:flex;align-items:flex-start;gap:10px;"><div class="goal-check " onclick="toggleGoal(2)"></div><div class="goal-text ">Sales shit on target to be ready for summer</div><button class="goal-del" onclick="deleteGoal(2)">×</button></div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Inventory practices are adjusted and SOPs complete</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>FMU refurnished</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>TC cafe updated</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Pub service and customer flow is complete</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Remerchandising by store is done</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>New product plan is communicated and in place for stores</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Training program updates have been implemented</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;"><div style="display:flex;align-items:flex-start;gap:10px;"><div class="goal-check " onclick="toggleGoal(3)"></div><div class="goal-text ">Lansing performance review is in process</div><button class="goal-del" onclick="deleteGoal(3)">×</button></div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>4-5 metrics that help us determine whether the store is successful</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Next steps for measuring are established</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Timeline established for determination</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Routing for proposals established (staying closed, open, other location, etc.)</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Established end date to the process</s></span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;"><div style="display:flex;align-items:flex-start;gap:10px;"><div class="goal-check " onclick="toggleGoal(4)"></div><div class="goal-text ">Accountability adjustments for the team</div><button class="goal-del" onclick="deleteGoal(4)">×</button></div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Specific plan with times, dates, and roles defined and shared</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Dawn's role redefined</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Ellen's role redefined</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Northern stores management plan defined</s></span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Management team for Birmingham is laid out</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Sales data analyst deliverables are clear for summer season</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span><s>Renee's attitude is sunshine and fresh air all quarter</s></span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;"><div style="display:flex;align-items:flex-start;gap:10px;"><div class="goal-check " onclick="toggleGoal(5)"></div><div class="goal-text ">Remerchandising to improve profitability from summer sales</div><button class="goal-del" onclick="deleteGoal(5)">×</button></div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Product categories are remerchandised</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Activities done before Memorial Day</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Product changes are monitored and data is prepared to be collected over the course of the summer</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Projected data analysis supplied to DFC</span></li></ul></div><div class="goal-item" style="display:flex;flex-direction:column;align-items:stretch;gap:4px;"><div style="display:flex;align-items:flex-start;gap:10px;"><div class="goal-check " onclick="toggleGoal(6)"></div><div class="goal-text ">2nd Pilot store momentum is rolling</div><button class="goal-del" onclick="deleteGoal(6)">×</button></div><ul style="margin:5px 0 2px 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;"><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>2-3 locations identified</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Grand Rapids market looked at</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Partridge Creek popup is analyzed</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>DC market has in-person visit</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Lansing store evaluated</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Initial cities in Florida identified as potential spots</span></li><li style="display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--text-secondary);line-height:1.5;"><span style="color:var(--accent-green);margin-top:2px;flex-shrink:0;">•</span><span>Pilot kit is solidified and ready to be built</span></li></ul></div></div>
       <div class="add-goal-row">
         <input class="add-goal-input" id="goal-input" placeholder="Add a rock..." onkeydown="if(event.key==='Enter') addGoal()">
         <button class="btn" onclick="addGoal()">+ Add</button>
@@ -455,44 +446,75 @@
       <div class="card-header">
         <span class="card-title">💡 Entrepreneur Corner</span>
       </div>
-      <div style="padding:4px 0 10px;">
-        <p style="font-size:20px;font-weight:600;color:var(--text-primary);margin-bottom:4px;text-align:center;">13 Motivational Practices that Keep me going as an Entrepreneur</p>
-        <p style="font-size:18px;color:var(--text-secondary);margin-bottom:10px;font-style:italic;text-align:center;"><a href="https://medium.com/@lizhuberofficial/13-motivational-practices-that-keep-me-going-as-an-entrepreneur-7f54a1b9c042" target="_blank" style="color:var(--accent-blue);">Click the link to read the article</a></p>
-        <ol style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;">
-          <li style="font-size:15px;color:var(--text-secondary);">Connecting with my Vision</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Getting my heart rate up while working out</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Practicing Gratitude</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Getting enough Rest and Nourishing my Body</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Setting my Goals the Right Way</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Celebrating Small Wins</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Getting to the Source of the Demotivation</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Reconnecting with my WHY</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Going through positive customer reviews and messages</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Taking a guilt-free afternoon off and treating myself</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Surrendering to the Universe</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Writing down my Previous Achievements</li>
-          <li style="font-size:15px;color:var(--text-secondary);">Reminding myself of my anti-vision</li>
-        </ol>
+      <div style="padding:4px 0 10px;text-align:center;">
+        <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:8px;">Podcast Recommendation</p>
+        <a href="https://podcasts.apple.com/us/podcast/the-10-minute-entrepreneur/id1330004517" target="_blank" style="font-size:18px;font-weight:600;color:var(--accent-blue);text-decoration:none;">🎙 The 10 Minute Entrepreneur</a>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:8px;">Quick, tactical tips from serial entrepreneur Sean Castrina</p>
       </div>
       <div class="countdown-wrap">
         <div class="countdown-label">Countdown to removal of this section</div>
-        <div class="countdown-timer" id="countdown-display">—</div>
+        <div class="countdown-timer" id="countdown-display">14d 15h 48m 20s</div>
         <div class="countdown-sub">Target removal date: May 27, 2026</div>
       </div>
     </div>
 
     <!-- Recharge Corner -->
-    <div class="card" style="padding:0;">
-      <div style="padding:10px 14px 0;">
-        <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-secondary);">✨ Recharge corner</span>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <!-- Header -->
+      <div style="background:#8b1a4a;padding:12px 16px;display:flex;flex-direction:column;align-items:center;gap:4px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">🔋</span>
+          <span style="font-size:18px;font-weight:600;color:#fff;">Recharge</span>
+        </div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.8);letter-spacing:0.03em;">Review Personal Recharge Notes</span>
       </div>
-      <div style="background:var(--accent-blue);padding:8px 14px;margin:10px 0 14px;">
-        <span style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:#ddeeff;">Weekly Theme</span>
+      <!-- Grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;">
+
+        <!-- PHYSICAL header -->
+        <div style="background:#1a6b4a;padding:8px 14px;"><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Physical</span></div>
+        <!-- MENTAL header -->
+        <div style="background:#8b1a4a;padding:8px 14px;border-left:1px solid rgba(255,255,255,0.15);"><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Mental</span></div>
+
+        <!-- Physical items -->
+        <div style="background:#e8f5ee;padding:8px 14px;display:flex;flex-direction:column;gap:7px;border-bottom:1px solid #c8e6d4;">
+          <div style="font-size:13px;color:#1a3a2a;">• Morning stretch — track daily</div>
+          <div style="font-size:13px;color:#1a3a2a;">• Pickleball 2x per week</div>
+          <div style="font-size:13px;color:#1a3a2a;">• Walk 30 min</div>
+          <div style="font-size:13px;color:#1a3a2a;">• Weights — define routine, start simple</div>
+          <div style="font-size:13px;color:#1a3a2a;">• 1 cardio 3x/week — walk, skate</div>
+        </div>
+        <!-- Mental items -->
+        <div style="background:#fce8ef;padding:8px 14px;display:flex;flex-direction:column;gap:7px;border-left:1px solid #f0c0cf;border-bottom:1px solid #f0c0cf;">
+          <div style="font-size:13px;color:#3a1a24;">• 4-day work week (long term goal)</div>
+          <div style="font-size:13px;color:#3a1a24;">• Restart Headspace — 1 video per day</div>
+          <div style="font-size:13px;color:#3a1a24;">• Buffer days — respect the rules</div>
+          <div style="font-size:13px;color:#3a1a24;">• Utilize coaching tools with Bob and Todd</div>
+          <div style="font-size:13px;color:#3a1a24;">• Read 30 min/day</div>
+        </div>
+
+        <!-- EMOTIONAL header -->
+        <div style="background:#1a6b4a;padding:8px 14px;"><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Emotional</span></div>
+        <!-- HOBBIES header -->
+        <div style="background:#8b1a4a;padding:8px 14px;border-left:1px solid rgba(255,255,255,0.15);"><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Hobbies</span></div>
+
+        <!-- Emotional items -->
+        <div style="background:#e8f5ee;padding:8px 14px;display:flex;flex-direction:column;gap:7px;">
+          <div style="font-size:13px;color:#1a3a2a;">• Date night with Heather every 2 weeks</div>
+          <div style="font-size:13px;color:#1a3a2a;">• Schedule 1 LT energy-person event per month</div>
+          <div style="font-size:13px;color:#1a3a2a;">• 1 positive gift, card, or reach-out via Renee per week</div>
+        </div>
+        <!-- Hobbies items -->
+        <div style="background:#fce8ef;padding:8px 14px;display:flex;flex-direction:column;gap:7px;border-left:1px solid #f0c0cf;">
+          <div style="font-size:13px;color:#3a1a24;">• Travel — book within 6 months</div>
+          <div style="font-size:13px;color:#3a1a24;">• Read 1 book/month — find a physical space for this</div>
+          <div style="font-size:13px;color:#3a1a24;">• Music — 1 concert booked 6 months out; 1 hr/week</div>
+          <div style="font-size:13px;color:#3a1a24;">• Photos — AI organization project</div>
+        </div>
+
       </div>
-      <div style="padding:0 14px 14px;">
-        <textarea id="weekly-theme-notes" placeholder="Add your notes or reflections on this week's theme…" style="width:100%;margin-top:10px;padding:9px 10px;font-size:13px;font-family:var(--font-sans);
-                 border:0.5px solid var(--border-mid);border-radius:var(--radius-md);
-                 background:var(--bg-primary);color:var(--text-primary);resize:vertical;min-height:80px;outline:none;">This week, consider taking digital breaks. Even if it's just for 5-15 minutes, set a timer and don't look at any screens. </textarea>
+      <div style="padding:14px;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.6;">Take a few minutes this week to review your recharge goals. How are you doing? What needs to be adjusted?</p>
       </div>
     </div>
 
@@ -538,41 +560,47 @@
 // ================================================================
 const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const calendarEvents = [
-  {title:"Good Morning Sunshine!",start:"2026-05-08T09:30",end:"2026-05-08T11:00",renee:true},
-  {title:"Budget Work – Birmingham",start:"2026-05-08T11:00",end:"2026-05-08T13:00"},
-  {title:"Marissa & Jason Check In",start:"2026-05-08T13:00",end:"2026-05-08T14:00"},
-  {title:"OOO",start:"2026-05-08T15:00",end:"2026-05-08T17:00"},
-  {title:"Championship Meet",start:"2026-05-08T16:00",end:"2026-05-08T16:30"},
-  {title:"Midland Soccer Tournament",start:"2026-05-09",allDay:true},
-  {title:"Game 1 – Field #3",start:"2026-05-09T08:00",end:"2026-05-09T08:30"},
-  {title:"Game 2 – Field #3",start:"2026-05-09T11:55",end:"2026-05-09T12:25"},
-  {title:"Midland Soccer Tournament",start:"2026-05-10",allDay:true},
-  {title:"Dept Exec Packet Due",start:"2026-05-10",allDay:true},
-  {title:"Game 3 – Field #2",start:"2026-05-10T08:00",end:"2026-05-10T08:30"},
-  {title:"Game 4 – Field #3",start:"2026-05-10T11:55",end:"2026-05-10T12:25"},
-  {title:"Renee OOO",start:"2026-05-11",allDay:true},
-  {title:"TC/GA Breakfast",start:"2026-05-11T09:00",end:"2026-05-11T10:30"},
-  {title:"Agency Visits (declined)",start:"2026-05-11T10:00",end:"2026-05-11T10:45"},
-  {title:"Working/Not Working – Ellen",start:"2026-05-11T13:00",end:"2026-05-11T13:30"},
-  {title:"Talking Expansion – Roni",start:"2026-05-11T14:00",end:"2026-05-11T15:00"},
+  // Tue May 12
   {title:"Good Morning Sunshine!",start:"2026-05-12T09:00",end:"2026-05-12T10:00",renee:true},
   {title:"LT Level 10",start:"2026-05-12T10:30",end:"2026-05-12T12:00"},
   {title:"Projects Check In",start:"2026-05-12T12:30",end:"2026-05-12T13:00"},
-  {title:"Dawn/Ellen/Marissa Roles",start:"2026-05-12T13:00",end:"2026-05-12T13:30"},
+  {title:"Dawn, Ellen, Marissa Role Check In",start:"2026-05-12T13:00",end:"2026-05-12T13:30"},
+  {title:"Golf – Leland Country Club",start:"2026-05-12T13:00",end:"2026-05-12T13:30"},
+  {title:"Test Vodka Mule Samples",start:"2026-05-12T16:00",end:"2026-05-12T16:30"},
+  // Wed May 13
   {title:"Sales L10",start:"2026-05-13T11:00",end:"2026-05-13T12:30"},
   {title:"Group Recharge!",start:"2026-05-13T12:30",end:"2026-05-13T17:00"},
+  // Thu May 14
   {title:"Buffer Day",start:"2026-05-14",allDay:true},
-  {title:"Good Morning Sunshine!",start:"2026-05-14T09:30",end:"2026-05-14T11:30",renee:true},
+  {title:"Good Morning Sunshine!",start:"2026-05-14T09:00",end:"2026-05-14T10:00",renee:true},
+  {title:"Not Available",start:"2026-05-14T10:15",end:"2026-05-14T13:15"},
   {title:"Innovation Coffee Hour",start:"2026-05-14T13:30",end:"2026-05-14T15:00"},
+  // Fri May 15
   {title:"Tentative Northern Stores Visit",start:"2026-05-15",allDay:true},
+  {title:"Busy",start:"2026-05-15T08:00",end:"2026-05-15T10:30"},
+  {title:"Benefits Open Enrollment Mtg",start:"2026-05-15T09:00",end:"2026-05-15T10:00"},
   {title:"Good Morning Sunshine!",start:"2026-05-15T09:30",end:"2026-05-15T10:00",renee:true},
+  // Sat May 16
+  {title:"Cherry Capital Cup Game 1 – Field #2",start:"2026-05-16T08:50",end:"2026-05-16T09:20"},
+  {title:"Game 2 – Field 15",start:"2026-05-16T14:10",end:"2026-05-16T14:40"},
+  // Sun May 17
+  {title:"Game 3 – Bulldogs Field #1",start:"2026-05-17T07:30",end:"2026-05-17T08:00"},
+  // Mon May 18
+  {title:"Good Morning Sunshine!",start:"2026-05-18T10:00",end:"2026-05-18T11:30",renee:true},
+  {title:"Working/Not Working – Ellen",start:"2026-05-18T13:00",end:"2026-05-18T13:30"},
+  {title:"Larissa & Jason Biweekly",start:"2026-05-18T14:00",end:"2026-05-18T15:00"},
+  // Tue May 19
+  {title:"Jason/Julie Coffee Hour",start:"2026-05-19T09:00",end:"2026-05-19T10:00"},
+  {title:"LT Level 10",start:"2026-05-19T10:30",end:"2026-05-19T12:00"},
+  {title:"Projects Check In",start:"2026-05-19T13:00",end:"2026-05-19T13:30"},
+  {title:"Jason & Jen Biweekly",start:"2026-05-19T13:30",end:"2026-05-19T14:00"},
 ];
 function fmt(d){let h=d.getHours(),m=d.getMinutes(),ap=h>=12?'pm':'am';h=h%12||12;return m===0?h+ap:h+':'+String(m).padStart(2,'0')+ap;}
 function renderCalendar(){
-  const now=new Date('2026-05-08');
+  const now=new Date('2026-05-12');
   const el=document.getElementById('cal-events');
   const cols=[];
-  for(let i=0;i<8;i++){const d=new Date('2026-05-08T00:00:00');d.setDate(d.getDate()+i);cols.push({date:d,events:[]});}
+  for(let i=0;i<8;i++){const d=new Date('2026-05-12T00:00:00');d.setDate(d.getDate()+i);cols.push({date:d,events:[]});}
   calendarEvents.forEach(ev=>{
     const evDate=ev.start.includes('T')?new Date(ev.start):new Date(ev.start+'T00:00:00');
     const col=cols.find(c=>c.date.toDateString()===evDate.toDateString());
@@ -594,22 +622,22 @@ function renderCalendar(){
 // SALES TABLE
 // ================================================================
 const salesData=[
-  {channel:'Ann Arbor Retail',sales:129826.01,salesLY:125028.54,salesOP:129458.21,emails:948},
-  {channel:'Charlevoix Retail',sales:22406.02,salesLY:21612.18,salesOP:22431.74,emails:137},
-  {channel:'Frankenmuth Retail',sales:77515.80,salesLY:78543.38,salesOP:81555.74,emails:646},
-  {channel:'Glen Arbor Retail',sales:49926.97,salesLY:53810.35,salesOP:55853.06,emails:483},
-  {channel:'Holland Retail',sales:171126.24,salesLY:156364.79,salesOP:161928.39,emails:1739},
-  {channel:'Lansing Retail',sales:37348.79,salesLY:0,salesOP:58333.66,emails:537},
-  {channel:'Mackinaw City Retail',sales:11083.40,salesLY:0,salesOP:9155.29,emails:125},
-  {channel:'Traverse City Retail',sales:194720.16,salesLY:183414.43,salesOP:189022.86,emails:1485},
+  {channel:'Ann Arbor Retail',sales:155831.75,salesLY:138339.78,salesOP:145115.71,emails:993},
+  {channel:'Charlevoix Retail',sales:27993.14,salesLY:25665.59,salesOP:27014.55,emails:165},
+  {channel:'Frankenmuth Retail',sales:84883.71,salesLY:83170.78,salesOP:87383.07,emails:642},
+  {channel:'Glen Arbor Retail',sales:66496.78,salesLY:66681.21,salesOP:70023.89,emails:626},
+  {channel:'Holland Retail',sales:281021.33,salesLY:256386.75,salesOP:267941.23,emails:2434},
+  {channel:'Lansing Retail',sales:39548.43,salesLY:0,salesOP:57341.58,emails:555},
+  {channel:'Mackinaw City Retail',sales:18292.05,salesLY:0,salesOP:6371.84,emails:176},
+  {channel:'Traverse City Retail',sales:234186.65,salesLY:208789.75,salesOP:217798.08,emails:1714},
   {channel:'All Retail',sales:null,salesLY:null,salesOP:null,emails:null,isSubtotal:true},
-  {channel:'Web Order',sales:164135.61,salesLY:132670.50,salesOP:150741.59,emails:null},
-  {channel:'Mail Order',sales:9280.05,salesLY:6899.05,salesOP:4909.79,emails:null},
-  {channel:'Corporate Order',sales:12579.65,salesLY:16798.36,salesOP:19054.61,emails:null},
-  {channel:'Amazon Order',sales:14020.29,salesLY:0,salesOP:17446.17,emails:null},
+  {channel:'Web Order',sales:198381.35,salesLY:144813.31,salesOP:164100.16,emails:null},
+  {channel:'Mail Order',sales:9716.75,salesLY:7733.38,salesOP:5413.36,emails:null},
+  {channel:'Corporate Order',sales:8588.85,salesLY:16134.67,salesOP:18760.62,emails:null},
+  {channel:'Amazon Order',sales:10665.96,salesLY:0,salesOP:17258.01,emails:null},
   {channel:'WB/MO/CP Total',sales:null,salesLY:null,salesOP:null,emails:null,isSubtotal:true},
-  {channel:'Wholesale Order',sales:95127.61,salesLY:95949.32,salesOP:100487.31,emails:null},
-  {channel:'Public House',sales:25304.55,salesLY:24469.00,salesOP:28823.10,emails:null},
+  {channel:'Wholesale Order',sales:112859.54,salesLY:99013.36,salesOP:104539.03,emails:null},
+  {channel:'Public House',sales:32815.05,salesLY:28330.73,salesOP:35838.53,emails:null},
   {channel:'Total',sales:null,salesLY:null,salesOP:null,emails:null,isTotal:true},
 ];
 function calcSubtotals(){
@@ -754,19 +782,10 @@ document.getElementById('live-date').innerHTML=new Date().toLocaleDateString('en
 
 // Download
 function downloadHTML(){
-  const notes=document.getElementById('weekly-theme-notes');notes.textContent=notes.value;
   const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
   const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='jason-command-center.html';a.click();URL.revokeObjectURL(url);
 }
 
-// Weekly notes
-const weeklyNotes=document.getElementById('weekly-theme-notes');
-(function(){
-  try{const saved=localStorage.getItem('cr-weekly-theme-notes');if(saved!==null)weeklyNotes.value=saved;}catch(e){}
-  function saveNotes(){try{localStorage.setItem('cr-weekly-theme-notes',weeklyNotes.value);}catch(e){}}
-  weeklyNotes.addEventListener('input',saveNotes);weeklyNotes.addEventListener('change',saveNotes);
-  weeklyNotes.addEventListener('keyup',saveNotes);window.addEventListener('beforeunload',saveNotes);
-})();
 
 // ================================================================
 // PILOT PROVEN PROCESS WHEEL
@@ -987,5 +1006,6 @@ renderIssues();
 renderGoals();
 pppDraw();
 </script>
-</body>
-</html>
+
+
+</body></html>
