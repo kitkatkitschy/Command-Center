@@ -241,8 +241,67 @@
     background: #0d1f3c; color: #fff; padding: 8px 20px; border-radius: 20px;
     font-size: 13px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 9999;
   }
+
+  /* Team Overview */
+  #to-body { display: none; margin-top: 14px; }
+  .to-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 11px; }
+  .to-pc { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; transition: border-color .15s; }
+  .to-pc:hover { border-color: var(--border-strong); }
+  .to-pch { display: flex; align-items: center; gap: 10px; padding: 0.8rem 1rem; border-bottom: 0.5px solid var(--border-light); }
+  .to-av { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+  .to-pcb { padding: 0.8rem 1rem; display: flex; flex-direction: column; gap: 7px; }
+  .to-sec { font-size: 10px; }
+  .to-sec-lbl { font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--text-tertiary); margin-bottom: 3px; }
+  .to-pip { display: inline-block; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .to-chip { font-size: 10px; padding: 1px 6px; border-radius: var(--radius-md); background: var(--bg-primary); border: 0.5px solid var(--border-light); display: inline-flex; align-items: center; gap: 3px; }
+  .to-bdg { display: inline-block; font-size: 10px; padding: 1px 5px; border-radius: var(--radius-md); font-weight: 500; }
+  .to-pos { background: #E6F1FB; color: #0C447C; } .to-neg { background: #FCEBEB; color: #A32D2D; } .to-neu { background: var(--bg-tertiary); color: var(--text-secondary); }
+  .to-pro { background: #E6F1FB; color: #0C447C; } .to-per { background: var(--bg-tertiary); color: var(--accent-blue); }
+  .to-dim { color: var(--text-tertiary); font-style: italic; }
+  /* detail */
+  .to-dv { display: none; }
+  .to-dv.on { display: block; }
+  .to-dh { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 0.5px solid var(--border-light); }
+  .to-dav { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+  .to-dg { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  @media (max-width: 680px) { .to-dg { grid-template-columns: 1fr; } }
+  .to-dsc { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 0.8rem 1rem; }
+  .to-dsc.fw { grid-column: 1/-1; }
+  .to-dsh { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+  .to-dst { font-size: 12px; font-weight: 500; }
+  .to-add { background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 2px 8px; font-size: 11px; font-family: var(--font-sans); color: var(--text-secondary); cursor: pointer; }
+  .to-add:hover { background: var(--bg-primary); }
+  .to-row { display: flex; align-items: center; gap: 7px; padding: 4px 0; border-bottom: 0.5px solid var(--border-light); font-size: 12px; }
+  .to-row:last-child { border-bottom: none; }
+  .to-row.top { align-items: flex-start; }
+  .to-chk { width: 13px; height: 13px; border-radius: 3px; border: 1.5px solid var(--border-mid); cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 8px; }
+  .to-chk.done { background: var(--accent-green); border-color: var(--accent-green); color: #fff; }
+  .to-pp { font-size: 10px; padding: 1px 5px; border-radius: var(--radius-md); font-weight: 500; flex-shrink: 0; }
+  .to-pp.high { background: #FCEBEB; color: #A32D2D; } .to-pp.med { background: #FAEEDA; color: #854F0B; } .to-pp.low { background: var(--bg-tertiary); color: var(--text-secondary); }
+  .to-del { background: none; border: none; cursor: pointer; color: var(--text-tertiary); font-size: 12px; padding: 0 2px; opacity: .35; }
+  .to-del:hover { opacity: 1; color: #A32D2D; }
+  .to-mg { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px,1fr)); gap: 6px; }
+  .to-msm { background: var(--bg-primary); border-radius: var(--radius-md); padding: 7px 9px; position: relative; cursor: pointer; }
+  .to-mdt { width: 7px; height: 7px; border-radius: 50%; position: absolute; top: 7px; right: 7px; }
+  .to-empty { font-size: 11px; color: var(--text-tertiary); padding: 6px 0; text-align: center; }
+  .to-sf { font-size: 11px; color: var(--accent-green); opacity: 0; transition: opacity .4s; margin-right: 4px; }
+  .to-sf.show { opacity: 1; }
+  /* Team modal */
+  .to-mo { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 300; align-items: center; justify-content: center; padding: 1rem; }
+  .to-mo.open { display: flex; }
+  .to-mb { background: var(--bg-primary); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 1.5rem; width: 390px; max-width: 100%; box-shadow: 0 8px 40px rgba(0,0,0,.18); max-height: 90vh; overflow-y: auto; }
+  .to-mti { font-size: 15px; font-weight: 500; margin-bottom: 1rem; }
+  .to-f { margin-bottom: 10px; }
+  .to-f label { display: block; font-size: 11px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .4px; }
+  .to-f input, .to-f select, .to-f textarea { width: 100%; padding: 7px 9px; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); background: var(--bg-secondary); color: var(--text-primary); font-family: var(--font-sans); font-size: 13px; outline: none; }
+  .to-f input:focus, .to-f select:focus, .to-f textarea:focus { border-color: var(--border-strong); }
+  .to-f textarea { height: 65px; resize: vertical; }
+  .to-ma { display: flex; justify-content: flex-end; gap: 7px; margin-top: 1rem; }
+  .to-bc { padding: 6px 14px; border-radius: var(--radius-md); border: 0.5px solid var(--border-mid); background: transparent; color: var(--text-secondary); font-family: var(--font-sans); font-size: 12px; cursor: pointer; }
+  .to-bs { padding: 6px 14px; border-radius: var(--radius-md); border: none; background: var(--accent-blue); color: #fff; font-family: var(--font-sans); font-size: 12px; font-weight: 500; cursor: pointer; }
+
 </style>
-<script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script><script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script></head>
+<script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script><script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script><script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script></head>
 <body>
 <div class="page">
 
@@ -266,7 +325,7 @@
         <span class="card-title">📅 May 15 – 23</span>
         <a class="card-action" href="https://outlook.office365.com/calendar" target="_blank">Open Outlook ↗</a>
       </div>
-      <div class="cal-grid" id="cal-events" style="grid-template-columns:repeat(9,1fr);"></div>
+      <div class="cal-grid" id="cal-events" style="grid-template-columns:repeat(9,1fr);"><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Fri</div><div class="cal-col-num">15</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Busy</div><div class="cal-time">8am–10:30am</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Benefits Open Enrollment Mtg</div><div class="cal-time">9am–10am</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Sat</div><div class="cal-col-num">16</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Cherry Capital Cup Game 1 – Field #2 (Bulldogs)</div><div class="cal-time">8:50am–9:20am</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Game 2 – Field 15</div><div class="cal-time">2:10pm–2:40pm</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Sun</div><div class="cal-col-num">17</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Game 3 – Bulldogs Field #1</div><div class="cal-time">7:30am–8am</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Mon</div><div class="cal-col-num">18</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Sales L10</div><div class="cal-time">10am–11:30am</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Tue</div><div class="cal-col-num">19</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Jason/Julie Coffee Hour</div><div class="cal-time">9am–10am</div></div><div class="cal-event ev-upcoming"><div class="cal-title">LT Level 10</div><div class="cal-time">10:30am–12pm</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Projects Check In</div><div class="cal-time">1pm–1:30pm</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Jason &amp; Jen Biweekly</div><div class="cal-time">1:30pm–2pm</div></div><div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">3pm–4pm</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Wed</div><div class="cal-col-num">20</div></div><div class="cal-col-events"><div class="cal-event ev-renee"><div class="cal-title">Renee Touch Base / Planner Check In</div><div class="cal-time">9:30am–10:30am</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Blake &amp; Jason Happy Hour</div><div class="cal-time">3pm–5pm</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Thu</div><div class="cal-col-num">21</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Buffer Day</div><div class="cal-time">All day</div></div><div class="cal-event ev-upcoming"><div class="cal-title">TCT Board Meeting</div><div class="cal-time">9am–11am</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Benefits Enrollment – In Person</div><div class="cal-time">1pm–2pm</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Fri</div><div class="cal-col-num">22</div></div><div class="cal-col-events"><div class="cal-event ev-renee"><div class="cal-title">Good Morning Sunshine!</div><div class="cal-time">9:30am–10am</div></div></div></div><div class="cal-col"><div class="cal-col-header"><div class="cal-col-dow">Sat</div><div class="cal-col-num">23</div></div><div class="cal-col-events"><div class="cal-event ev-upcoming"><div class="cal-title">Game 1 – Field # Stadium</div><div class="cal-time">8am–8:30am</div></div><div class="cal-event ev-upcoming"><div class="cal-title">Game 2 – Field # Stadium</div><div class="cal-time">1pm–1:30pm</div></div></div></div></div>
     </div>
 
     <!-- Sales -->
@@ -299,16 +358,7 @@
         <span class="card-title">💡 Check In / Issues / Opportunities</span>
         <button class="card-action" onclick="addIssue()">+ Add</button>
       </div>
-      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"><div data-id="1778688340402" draggable="true" style="display:flex;align-items:flex-start;gap:10px;background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px 12px;cursor:grab;transition:opacity 0.15s,box-shadow 0.15s;" ondragstart="issueDragStart(event,1778688340402)" ondragover="issueDragOver(event)" ondrop="issueDrop(event,1778688340402)" ondragend="issueDragEnd(event)">
-      <span style="color:var(--text-tertiary);font-size:14px;flex-shrink:0;margin-top:2px;cursor:grab;user-select:none;line-height:1;" title="Drag to reorder">⠿</span>
-      <span style="font-size:13px;flex-shrink:0;margin-top:1px;">🔵</span>
-      <div style="flex:1;cursor:pointer;" onclick="openIssueModal(1778688340402)">
-        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">Check In Item</div>
-        <div style="font-size:13.5px;color:var(--text-primary);line-height:1.5;">check ins- cadence and addition to command center</div>
-        
-      </div>
-      <button onclick="deleteIssue(1778688340402)" style="background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:16px;line-height:1;padding:0 4px;opacity:0.7;">×</button>
-    </div></div>
+      <div id="issues-list" style="display:flex;flex-direction:column;gap:8px;min-height:40px;"><div class="empty-state">No issues or opportunities yet.</div></div>
       <div style="display:flex;gap:7px;margin-top:10px;">
         <input id="issue-input" class="msg-input" placeholder="Describe an issue or opportunity..." onkeydown="if(event.key==='Enter') addIssue()" style="flex:1;">
         <select id="issue-type" class="prio-select" style="min-width:110px;">
@@ -317,6 +367,36 @@
           <option value="checkin">🔵 Check In Item</option>
           <option value="smiley">😊 Smiley Face</option>
         </select>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TEAM OVERVIEW                                                 -->
+    <!-- ============================================================ -->
+    <div class="card" id="to-card">
+      <div class="card-header" style="margin-bottom:0;">
+        <span class="card-title">👥 Team Overview — L10 Snapshot</span>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span class="to-sf" id="to-sf">✓ Saved</span>
+          <button onclick="toToggle()" id="to-toggle-btn" class="card-action" style="padding:4px 11px;border:0.5px solid var(--border-mid);border-radius:var(--radius-md);cursor:pointer;font-family:var(--font-sans);background:none;">Show ▼</button>
+        </div>
+      </div>
+      <div id="to-body">
+        <div id="to-ov">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <span style="font-size:12px;color:var(--text-tertiary)">Full L10 snapshot across all team members</span>
+            <button onclick="toRefresh()" style="padding:4px 10px;border-radius:var(--radius-md);border:0.5px solid var(--border-mid);background:var(--bg-primary);color:var(--text-secondary);font-size:12px;font-family:var(--font-sans);cursor:pointer;">↻ Refresh</button>
+          </div>
+          <div class="to-grid" id="to-grid"></div>
+        </div>
+        <div id="to-dv" class="to-dv">
+          <div class="to-dh">
+            <button onclick="toBack()" style="background:none;border:0.5px solid var(--border-mid);border-radius:var(--radius-md);padding:4px 10px;font-size:12px;font-family:var(--font-sans);color:var(--text-secondary);cursor:pointer;">← Back</button>
+            <div class="to-dav" id="to-dav"></div>
+            <div><div style="font-size:17px;font-weight:500" id="to-dn"></div><div style="font-size:11px;color:var(--text-tertiary);margin-top:2px" id="to-dsync"></div></div>
+          </div>
+          <div class="to-dg" id="to-dg"></div>
+        </div>
       </div>
     </div>
 
@@ -378,7 +458,7 @@
       </div>
       <div class="countdown-wrap">
         <div class="countdown-label">Countdown to removal of this section</div>
-        <div class="countdown-timer" id="countdown-display">12d 13h 11m 14s</div>
+        <div class="countdown-timer" id="countdown-display">12d 11h 27m 28s</div>
         <div class="countdown-sub">Target removal date: May 27, 2026</div>
       </div>
     </div>
@@ -925,8 +1005,230 @@ renderSalesTable();
 renderIssues();
 renderGoals();
 pppDraw();
+// ================================================================
+// TEAM OVERVIEW
+// ================================================================
+const TO_PEOPLE=[
+  {id:'pranav',  name:'Pranav Dalvi',       initials:'PD', color:'#1a5c9e', colorText:'#E6F1FB'},
+  {id:'dawn',    name:'Dawn',               initials:'DA', color:'#3C3489', colorText:'#EEEDFE'},
+  {id:'rick',    name:'Rick',               initials:'RI', color:'#993C1D', colorText:'#FAECE7'},
+  {id:'tyler',   name:'Tyler',              initials:'TY', color:'#5F5E5A', colorText:'#F1EFE8'},
+  {id:'ellen',   name:'Ellen Kozlowski',    initials:'EK', color:'#72243E', colorText:'#FBEAF0'},
+  {id:'larissa', name:'Larissa Russell',    initials:'LR', color:'#3C3489', colorText:'#EEEDFE'},
+  {id:'jen',     name:'Jennifer Froehlich', initials:'JF', color:'#633806', colorText:'#FAEEDA'},
+  {id:'renee',   name:'Renee Back',         initials:'RB', color:'#0C447C', colorText:'#E6F1FB'},
+];
+
+const TO_KEY = 'jason-cmd-team-v1';
+let toMD = {}, toFT, toPid = null, toOpen = false;
+
+// Default rocks seeded from PDF — only written on first load
+const TO_DEFAULT_ROCKS = {
+  pranav: [
+    {title:'Proof Out Lansing',                       pct:0, status:'on',  due:'Jul 23'},
+    {title:'Pilot Locations Data',                    pct:0, status:'at',  due:'Jul 23'},
+    {title:'Wine Tasting Conversion Drives Sales AOV',pct:0, status:'on',  due:'Jul 23'},
+  ],
+  dawn: [
+    {title:'Inventory deliveries fixed w/DFC TC',               pct:0, status:'on', due:'Jul 28'},
+    {title:'Continue to Improve Inventory Processes',            pct:0, status:'on', due:'Jul 28'},
+    {title:'GA hired & trained by second week of June',          pct:0, status:'on', due:'Jul 28'},
+    {title:'Spirit Plan & Beverage Sales Plan Implemented',      pct:0, status:'on', due:'Jul 28'},
+  ],
+  rick: [
+    {title:'Finalize retail store merchandising/decor/signage plans for Summer', pct:0, status:'on',  due:'Jul 27'},
+    {title:'Facilitate and complete the Lansing/FMU/pilot fixture project',      pct:0, status:'at',  due:'Jul 27'},
+    {title:'Finish input and continue involvement in the Greater Great Hall project', pct:0, status:'on', due:'Jul 27'},
+    {title:'Develop a plan for retail store merchandising of spirits',           pct:0, status:'on',  due:'Jul 27'},
+    {title:'Develop the fixture and environment plan for new Birmingham location',pct:0, status:'on',  due:'Jul 27'},
+    {title:'Partner with Larissa to complete the TC "cafe/bakery" project',      pct:0, status:'on',  due:'Jul 27'},
+  ],
+  tyler: [
+    {title:'Store visits better inform decisions for growth',              pct:0, status:'on', due:'Jul 26'},
+    {title:'Convert 25% of qualified prospects from Q1',                  pct:0, status:'on', due:'Jul 26'},
+    {title:'Version 2 of client contacts empowers team to grow relationships', pct:0, status:'on', due:'Jul 26'},
+    {title:'Cogs and Pricing plan for Q3 & Q4',                           pct:0, status:'on', due:'Jul 26'},
+  ],
+  ellen: [
+    {title:'Implement margin project by 5/23', pct:0, status:'on', due:'Jul 26'},
+    {title:'AOV finding implemented',          pct:0, status:'on', due:'Jul 26'},
+  ],
+  larissa: [
+    {title:'Summer staff hired by Memorial Day',   pct:0, status:'on', due:'Jul 27'},
+    {title:'TC cafe project completed by 6/15',    pct:0, status:'on', due:'Jul 27'},
+  ],
+  jen: [
+    {title:'CPH Orientation Guide trained and launched',        pct:0, status:'on', due:'Jul 28'},
+    {title:'Manager training to deliverables/accountability',   pct:0, status:'on', due:'Jul 28'},
+    {title:'1st job training launched',                         pct:0, status:'on', due:'Jul 28'},
+    {title:'Taste the Cherries led by us in GA and TC',         pct:0, status:'on', due:'Jul 28'},
+  ],
+  renee: [
+    {title:'Birmingham ready to go with accountability in place', pct:0, status:'on', due:'Jul 23'},
+    {title:'Pilot Proven Process Applied to all Projects',        pct:0, status:'on', due:'Jul 23'},
+  ],
+};
+
+function toInit() {
+  try { const r = localStorage.getItem(TO_KEY); if (r) toMD = JSON.parse(r); } catch(e) {}
+  TO_PEOPLE.forEach(p => {
+    if (!toMD[p.id]) {
+      toMD[p.id] = { rocks: TO_DEFAULT_ROCKS[p.id] ? [...TO_DEFAULT_ROCKS[p.id]] : [], notes: '' };
+    }
+    // Ensure notes field exists on old saves
+    if (toMD[p.id].notes === undefined) toMD[p.id].notes = '';
+  });
+  localStorage.setItem(TO_KEY, JSON.stringify(toMD));
+}
+
+function toFlash() {
+  const el = document.getElementById('to-sf');
+  el.classList.add('show'); clearTimeout(toFT);
+  toFT = setTimeout(() => el.classList.remove('show'), 2000);
+}
+function toSave() { localStorage.setItem(TO_KEY, JSON.stringify(toMD)); toFlash(); }
+function toClr(s) { return s==='on' ? '#1a6bbf' : s==='at' ? '#BA7517' : '#E24B4A'; }
+
+function toToggle() {
+  toOpen = !toOpen;
+  document.getElementById('to-body').style.display = toOpen ? 'block' : 'none';
+  document.getElementById('to-toggle-btn').textContent = toOpen ? 'Hide ▲' : 'Show ▼';
+  if (toOpen) toRenderGrid();
+}
+function toRefresh() { toRenderGrid(); }
+function toBack() {
+  // Save notes before going back
+  if (toPid) {
+    const ta = document.getElementById('to-notes-ta');
+    if (ta) { toMD[toPid].notes = ta.value; toSave(); }
+  }
+  document.getElementById('to-dv').classList.remove('on');
+  document.getElementById('to-ov').style.display = 'block';
+}
+
+function toRenderGrid() {
+  document.getElementById('to-grid').innerHTML = TO_PEOPLE.map(p => {
+    const rocks = toMD[p.id]?.rocks || [];
+    const note = toMD[p.id]?.notes || '';
+    const rH = rocks.length
+      ? rocks.slice(0,3).map(r => `<div style="display:flex;align-items:center;gap:5px;margin-bottom:2px;">
+          <span class="to-pip" style="background:${toClr(r.status)}"></span>
+          <span style="font-size:11px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r.title}</span>
+          <span style="font-size:10px;color:var(--text-tertiary)">${r.pct||0}%</span>
+        </div>`).join('') + (rocks.length > 3 ? `<div class="to-dim">+${rocks.length-3} more</div>` : '')
+      : '<div class="to-dim">No rocks yet</div>';
+    const notePreview = note ? `<div style="margin-top:6px;padding-top:6px;border-top:0.5px solid var(--border-light);font-size:11px;color:var(--text-tertiary);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${note.slice(0,60)}${note.length>60?'…':''}</div>` : '';
+    return `<div class="to-pc" onclick="toDetail('${p.id}')">
+      <div class="to-pch">
+        <div class="to-av" style="background:${p.color};color:${p.colorText}">${p.initials}</div>
+        <div>
+          <div style="font-size:13px;font-weight:500">${p.name}</div>
+          <div style="font-size:10px;color:var(--text-tertiary)">${rocks.length} rock${rocks.length!==1?'s':''}</div>
+        </div>
+      </div>
+      <div class="to-pcb">
+        <div class="to-sec"><div class="to-sec-lbl">🪨 Rocks</div>${rH}</div>
+        ${notePreview}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toDetail(pid) {
+  toPid = pid;
+  const p = TO_PEOPLE.find(x => x.id === pid);
+  document.getElementById('to-ov').style.display = 'none';
+  document.getElementById('to-dv').classList.add('on');
+  const av = document.getElementById('to-dav');
+  av.textContent = p.initials; av.style.background = p.color; av.style.color = p.colorText;
+  document.getElementById('to-dn').textContent = p.name;
+  document.getElementById('to-dsync').textContent = '';
+  toRenderDetail(pid);
+}
+
+function toRenderDetail(pid) {
+  const rocks = toMD[pid]?.rocks || [];
+  const notes = toMD[pid]?.notes || '';
+  const rH = rocks.length
+    ? rocks.map((r, i) => `
+        <div class="to-row">
+          <span class="to-pip" style="background:${toClr(r.status)};width:7px;height:7px;border-radius:50%;flex-shrink:0;"></span>
+          <span style="flex:1">${r.title}</span>
+          <span style="font-size:10px;color:var(--text-tertiary);min-width:26px;text-align:right">${r.pct||0}%</span>
+          <button onclick="toCycleRock('${pid}',${i})" style="font-size:10px;padding:2px 6px;border-radius:5px;border:0.5px solid ${toClr(r.status)};color:${toClr(r.status)};background:none;cursor:pointer;font-family:var(--font-sans);white-space:nowrap">${r.status==='on'?'On track':r.status==='at'?'At risk':'Off track'}</button>
+          <button class="to-del" onclick="toDel('${pid}',${i})">✕</button>
+        </div>`).join('')
+    : '<p class="to-empty">No rocks yet</p>';
+
+  document.getElementById('to-dg').innerHTML = `
+    <div class="to-dsc fw">
+      <div class="to-dsh">
+        <span class="to-dst">🪨 Rocks</span>
+        <button class="to-add" onclick="toAddRockModal('${pid}')">+ Add</button>
+      </div>
+      ${rH}
+    </div>
+    <div class="to-dsc fw">
+      <div class="to-dsh"><span class="to-dst">📝 Notes</span></div>
+      <textarea id="to-notes-ta"
+        style="width:100%;height:90px;padding:8px 10px;font-size:13px;font-family:var(--font-sans);border:0.5px solid var(--border-mid);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);resize:vertical;outline:none;line-height:1.5;"
+        placeholder="Add notes about ${TO_PEOPLE.find(x=>x.id===pid).name.split(' ')[0]}…"
+        oninput="toMD['${pid}'].notes=this.value;toSave();"
+      >${notes}</textarea>
+    </div>`;
+}
+
+function toCycleRock(pid, i) {
+  const s = ['on','at','off'];
+  const r = toMD[pid].rocks[i];
+  if (r) { r.status = s[(s.indexOf(r.status)+1)%3]; toSave(); toRenderDetail(pid); }
+}
+function toDel(pid, i) {
+  toMD[pid].rocks.splice(i, 1); toSave(); toRenderDetail(pid);
+}
+
+// Add rock modal (simple inline — reuse existing to-mo)
+function toAddRockModal(pid) {
+  toPid = pid;
+  const p = TO_PEOPLE.find(x => x.id === pid);
+  document.getElementById('to-mti').textContent = 'Add a rock — ' + p.name.split(' ')[0];
+  document.getElementById('to-mbd').innerHTML = `
+    <div class="to-f"><label>Rock title</label><input id="tmf-title" placeholder="e.g. Launch project"></div>
+    <div class="to-f"><label>% complete</label><input id="tmf-pct" type="number" min="0" max="100" value="0"></div>
+    <div class="to-f"><label>Due date</label><input id="tmf-due" placeholder="e.g. Jul 28"></div>
+    <div class="to-f"><label>Status</label><select id="tmf-status">
+      <option value="on">On track</option>
+      <option value="at">At risk</option>
+      <option value="off">Off track</option>
+    </select></div>`;
+  document.getElementById('to-mo').classList.add('open');
+}
+function toCloseModal() { document.getElementById('to-mo').classList.remove('open'); }
+function tmv(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function toSaveModal() {
+  const title = tmv('tmf-title');
+  if (!title) return;
+  toMD[toPid].rocks.push({
+    title, pct: parseInt(tmv('tmf-pct')) || 0,
+    status: tmv('tmf-status'), due: tmv('tmf-due')
+  });
+  toCloseModal(); toSave(); toRenderDetail(toPid);
+}
+
+toInit();
+
+
 </script>
-
-
+<!-- Team Overview Modal -->
+<div class="to-mo" id="to-mo" onclick="if(event.target===this)toCloseModal()">
+  <div class="to-mb">
+    <div class="to-mti" id="to-mti"></div>
+    <div id="to-mbd"></div>
+    <div class="to-ma">
+      <button class="to-bc" onclick="toCloseModal()">Cancel</button>
+      <button class="to-bs" onclick="toSaveModal()">Add</button>
+    </div>
+  </div>
+</div>
 
 </body></html>
